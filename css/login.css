@@ -1,0 +1,102 @@
+/* Container styling */
+body {
+  background-color: #E0E1DD;
+  font-family: 'Poppins', sans-serif;
+}
+
+header .nav-menu a{
+  color: #0D1B2A;
+}
+
+header .logo a{
+  color: #0D1B2A;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  /* margin: 100px auto; */
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: whitesmoke;
+}
+
+/* Form title */
+h1 {
+  text-align: center;
+  font-size: 44px;
+  margin-bottom: 1.5rem;
+  color: #0f2027;
+}
+
+/* Input fields styling */
+.input-control {
+  margin-bottom: 1.5rem;
+}
+
+.input-control label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #0D1B2A;
+}
+
+.input-control input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #E0E1DD;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-control input:focus {
+  border-color: #007BFF;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 0.875rem;
+  height: 1rem; /* Make space for error messages */
+}
+
+/* Not registered section */
+.not-registered {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.not-registered a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.not-registered a:hover {
+  text-decoration: underline;
+}
