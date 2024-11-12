@@ -1,12 +1,15 @@
 <?php
+include("dashbase.php");
+
 session_start();
 $authenticated = false;
 if (isset($_SESSION["email"])) {
   $authenticated = true;
 }
 
-include("dashbase.php");
-if (isset($_POST["bsubmit"])) {
+$id = $_GET['edit'];
+
+if (isset($_POST["bupdate"])) {
   $user_id = $_SESSION['id'];
   $book_name = $_POST["bname"];
   $author_name = $_POST['aname'];
@@ -21,13 +24,12 @@ if (isset($_POST["bsubmit"])) {
   if (empty($book_name) || empty($book_price) || empty($author_name)) {
     $message[] = "All Fields Must Be Filled!";
   } else {
-    $insert = "INSERT INTO books(user_id, book_name, author_name, price, category, image_path,  description, upload_date) 
-        VALUES ('$user_id', '$book_name', '$author_name', '$book_price', '$category', '$book_image' , '$description', '$timestamp')";
-    $upload = mysqli_query($conn, $insert);
+    $update = "UPDATE  books SET book_name = '$book_name', author_name = '$author_name', price = '$book_price', category = '$category' , image_path = '$book_image' , description = '$description' , upload_date = '$timestamp' WHERE book_id = $id";
+    $upload = mysqli_query($conn, $update);
     if ($upload) {
       move_uploaded_file($book_image_temp, $book_image_folder);
       $message[] = 'New Product Added Successfully!';
-      header("Location: " . $_SERVER['PHP_SELF']);
+      header("Location: dashboard.php");
       exit();
     } else {
       $message[] = 'Failed to add new product!';
@@ -91,7 +93,7 @@ if (isset($_POST["bsubmit"])) {
           <label for="bdescription">Description</label>
           <textarea id="bdescription" name="bdescription" placeholder="Enter a brief synopsis or key details" rows="4"></textarea>
         </div>
-        <input type="submit" class="sub" value="submit" name="bsubmit">
+        <input type="submit" class="sub" value="Update" name="bupdate">
         <button type="button" class="cancel-btn" onclick="redirectToDashboard()">Cancel</button>
       </form>
     </div>

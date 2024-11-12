@@ -31,7 +31,7 @@ if (isset($_SESSION["email"])) {
               <?= $_SESSION["first_name"] ?>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/booksell/profile.php">Profile</a></li>
+              <li><a class="dropdown-item" href="/booksell/dashboard.php">Dashboard</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
