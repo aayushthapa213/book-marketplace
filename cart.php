@@ -2,10 +2,12 @@
 include('dashbase.php');
 include('./components/header.php');
 
+$user_id = $_SESSION['id'];
+
 if(isset($_POST['update_update'])){
   $update_value = $_POST['update_quantity'];
   $update_id = $_POST['update_quantity_id'];
-  $update_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cart_id = '$update_id'");
+  $update_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cart_id = '$update_id' AND user_id = '$user_id'");
   if($update_query){
     header('location: cart.php');
   }
@@ -13,12 +15,12 @@ if(isset($_POST['update_update'])){
 
 if(isset($_GET['remove'])){
   $remove_id = $_GET['remove'];
-  mysqli_query($conn, "DELETE FROM `cart` WHERE cart_id = $remove_id");
+  mysqli_query($conn, "DELETE FROM `cart` WHERE cart_id = $remove_id AND user_id = '$user_id'");
   header('location: cart.php');
 }
 
 if(isset($_GET['delete_all'])){
-  mysqli_query($conn, "DELETE FROM `cart`");
+  mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'");
   header('location: cart.php');
 }
 ?>
@@ -49,7 +51,7 @@ if(isset($_GET['delete_all'])){
         </thead>
         <tbody>
           <?php
-          $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+          $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
           $grand_total = 0;
           if (mysqli_num_rows($select_cart) > 0) {
             while ($row = mysqli_fetch_assoc($select_cart)) {

@@ -10,7 +10,7 @@ if (isset($_POST['add_to_cart'])) {
   $book_image = $_POST["product_image"];
   $book_quantity = 1;
 
-  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$book_name'");
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$book_name' AND user_id = '$user_id'");
 
   if (mysqli_num_rows($select_cart) > 0) {
     $message[] = "Book Already Exists!";

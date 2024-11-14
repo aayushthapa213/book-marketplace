@@ -5,6 +5,7 @@ $authenticated = false;
 if (isset($_SESSION["email"])) {
   $authenticated = true;
 }
+$user_id = $_SESSION['id'];
 ?>
 
 <header>
@@ -21,7 +22,7 @@ if (isset($_SESSION["email"])) {
       <li><a href="../booksell/shop.php">Shop</a></li>
       <li><a href="#">Categories</a></li>
       <?php
-      $select_rows = mysqli_query($conn, 'SELECT * FROM `cart`');
+      $select_rows = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
       $row_count = mysqli_num_rows($select_rows);
       ?>
       <li><a href="../booksell/cart.php">Cart <?php

@@ -19,7 +19,7 @@ $user_id = $_SESSION['id'];
   $query = "SELECT * FROM books WHERE user_id = '$user_id'";
   $result = mysqli_query($conn, $query);
 
-  $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
 
 
   if (isset($_GET['delete'])) {
@@ -30,7 +30,7 @@ $user_id = $_SESSION['id'];
 
   if (isset($_GET['remove'])) {
     $remove_id = $_GET['remove'];
-    mysqli_query($conn, "DELETE FROM books WHERE cart_id = $remove_id");
+    mysqli_query($conn, "DELETE FROM books WHERE cart_id = '$remove_id' AND user_id = '$user_id'");
     header("Location: " . $_SERVER['PHP_SELF']);
   }
   ?>
