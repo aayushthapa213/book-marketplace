@@ -19,9 +19,18 @@ $user_id = $_SESSION['id'];
   $query = "SELECT * FROM books WHERE user_id = '$user_id'";
   $result = mysqli_query($conn, $query);
 
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+
+
   if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM books WHERE book_id = $delete_id");
+    header("Location: " . $_SERVER['PHP_SELF']);
+  }
+
+  if (isset($_GET['remove'])) {
+    $remove_id = $_GET['remove'];
+    mysqli_query($conn, "DELETE FROM books WHERE cart_id = $remove_id");
     header("Location: " . $_SERVER['PHP_SELF']);
   }
   ?>
@@ -30,8 +39,23 @@ $user_id = $_SESSION['id'];
     <!-- Shopping Cart Section -->
     <section id="shopping-cart">
       <h2>Shopping Cart</h2>
-      <p>No items in your cart yet.</p>
-      <!-- Dynamically display items added to the cart -->
+      <?php if (mysqli_num_rows($select_cart) > 0): ?>
+        <div class="cart-items-container">
+          <?php while ($cart_item = mysqli_fetch_assoc($select_cart)): ?>
+            <div class="cart-item-card">
+              <img src="images/books/<?= htmlspecialchars($cart_item['image']); ?>" alt="<?= htmlspecialchars($cart_item['name']); ?>" class="cart-item-image">
+              <div class="cart-item-details">
+                <h3><?= htmlspecialchars($cart_item['name']); ?></h3>
+                <p>Price: $<?= number_format($cart_item['price']); ?></p>
+                <p>Quantity: <?= htmlspecialchars($cart_item['quantity']); ?></p>
+                <a href="cart.php?remove=<?= $cart_item['cart_id']; ?>" onclick="return confirm('Remove item from cart?')" class="btn remove-btn">Remove</a>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      <?php else: ?>
+        <p>No items in your cart yet.</p>
+      <?php endif; ?>
     </section>
 
     <!-- User Uploaded Books Section -->
@@ -62,7 +86,7 @@ $user_id = $_SESSION['id'];
                   <td><?= htmlspecialchars($row['book_name']) ?></td>
                   <td><?= htmlspecialchars($row['author_name']) ?></td>
                   <td>$<?= htmlspecialchars($row['price']) ?></td>
-                  <td><?= htmlspecialchars($row['category']) ?></td>  
+                  <td><?= htmlspecialchars($row['category']) ?></td>
                   <td><?= htmlspecialchars($row['description']) ?></td>
                   <td><?= htmlspecialchars($row['upload_date']) ?></td>
                   <td>

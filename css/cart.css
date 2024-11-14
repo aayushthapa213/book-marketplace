@@ -1,0 +1,134 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Shopping Cart Section */
+.shopping_cart {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+td img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: cover;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.delete {
+  color: red;
+  text-decoration: none;
+}
+
+.delete:hover {
+  text-decoration: underline;
+}
+
+.option-btn, .delete-btn {
+  padding: 10px 20px;
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.option-btn:hover, .delete-btn:hover {
+  background-color: #138496;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Grand Total Row */
+tr:last-child {
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+tr:last-child td {
+  border: none;
+}
+
+td:last-child {
+  text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  td img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .option-btn, .delete-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}

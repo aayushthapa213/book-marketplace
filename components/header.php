@@ -1,4 +1,5 @@
 <?php
+include('dashbase.php');
 session_start();
 $authenticated = false;
 if (isset($_SESSION["email"])) {
@@ -17,9 +18,16 @@ if (isset($_SESSION["email"])) {
     <ul class="nav-menu">
       <li><a href="index.php">Home</a></li>
       <li><a href="../about.php">About</a></li>
-      <li><a href="../shop.php">Shop</a></li>
+      <li><a href="../booksell/shop.php">Shop</a></li>
       <li><a href="#">Categories</a></li>
-      <li><a href="#">Cart</a></li>
+      <?php
+      $select_rows = mysqli_query($conn, 'SELECT * FROM `cart`');
+      $row_count = mysqli_num_rows($select_rows);
+      ?>
+      <li><a href="../booksell/cart.php">Cart <?php
+                            if ($authenticated) { ?> <span><?= $row_count ?></span>
+          <?php } ?>
+        </a></li>
     </ul>
 
     <!-- Right: Login Icon -->
