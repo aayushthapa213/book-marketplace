@@ -4,8 +4,10 @@ session_start();
 $authenticated = false;
 if (isset($_SESSION["email"])) {
   $authenticated = true;
+};
+if ($authenticated) {
+  $user_id = $_SESSION['id'];
 }
-$user_id = $_SESSION['id'];
 ?>
 
 <header>
@@ -21,12 +23,12 @@ $user_id = $_SESSION['id'];
       <li><a href="../about.php">About</a></li>
       <li><a href="../booksell/shop.php">Shop</a></li>
       <li><a href="#">Categories</a></li>
-      <?php
-      $select_rows = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
-      $row_count = mysqli_num_rows($select_rows);
-      ?>
-      <li><a href="../booksell/cart.php">Cart <?php
-                            if ($authenticated) { ?> <span><?= $row_count ?></span>
+
+      <li><a href="../booksell/cart.php">Cart
+          <?php
+          if ($authenticated) {
+            $select_rows = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
+            $row_count = mysqli_num_rows($select_rows); ?> <span><?= $row_count ?></span>
           <?php } ?>
         </a></li>
     </ul>
