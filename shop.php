@@ -61,7 +61,8 @@ if (isset($_POST['add_to_cart'])) {
           while ($row = mysqli_fetch_assoc($result)) {
         ?>
             <form action="" method="post">
-              <div class="box">
+              <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
+                <div class="box">
                 <img src="images/books/<?= $row['image_path']; ?>" alt="">
                 <h3><?= $row['book_name']; ?></h3>
                 <div class="price"><?= $row['price']; ?></div>
@@ -71,6 +72,7 @@ if (isset($_POST['add_to_cart'])) {
                 <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
                 <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
               </div>
+            </a>
             </form>
         <?php }
         } ?>
