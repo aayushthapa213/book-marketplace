@@ -108,6 +108,22 @@ body{
   font-weight: bold;
 }
 
+.view_more{
+  /* background-color: green; */
+  font-size: 1.25rem;
+  width: 20%;
+  line-height: 40px;
+  margin-top: 2.5rem;
+  margin-left: 40%;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.view_more a {
+  text-decoration: none;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
   .best-seller {
@@ -188,6 +204,7 @@ body{
 
 /* Featured Section */
 .featured-section {
+  /* background-color: blue; */
   width: 1180px; 
   margin:74px auto 0 auto;
   padding: 2rem;
@@ -200,35 +217,50 @@ body{
   color: #0D1B2A; 
 }
 
+.featured-section{
+  position: relative;
+}
 .carousel-container {
   position: relative;
   width: 100%;
+  height: 500px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.carousel-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center; 
- transition: transform 0.3s ease-in-out;
-  will-change: transform;
-  gap: 20px;
-  height: 408px;
 }
 
 .carousel-item {
-  height: 100%;
-  min-width: 250px; 
-  text-align: center;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+  /* position: absolute; */
+      height: 100%;
+    width: 80%; 
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    display: none;
+  }
+
+  .featured-section button{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    font-size: 2rem;
+    background-color: red;
+    color: blue;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev{
+    left: 0;
+  }
+
+  .next{
+    right: 0;
+  }
+
+  .carousel-item.displaySlide{
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  } 
 
 .carousel-item a {
   text-decoration: none;
@@ -258,26 +290,6 @@ body{
   font-weight: bold;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: blue;
-  color: #E0E1DD;
-  border: none;
-  padding: 18px;
-  cursor: pointer;
-  z-index: 4;
-  border-radius: 8px;
-}
-
-.left-btn {
-  left: 0;
-}
-
-.right-btn {
-  right: 0;
-}
 
 .carousel-btn:hover {
   background-color: #E0E1DD;
@@ -294,6 +306,11 @@ body{
   .carousel-item {
     min-width: 100%; /* Show 1 item on very small screens */
   }
+}
+
+@keyframes fade{
+  from{opacity: .5}
+  to{opacity: 1;}
 }
 
 /* Category Section */                                                  

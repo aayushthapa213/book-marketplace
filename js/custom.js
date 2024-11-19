@@ -1,35 +1,35 @@
-const carouselWrapper = document.querySelector('.carousel-wrapper');
-const carouselItems = document.querySelectorAll('.carousel-item');
-const prevBtn = document.querySelector('.left-btn');
-const nextBtn = document.querySelector('.right-btn');
+const slides = document.querySelectorAll(".carousel-item");
+let counter = 0;
+let interValid = null;
 
-let currentIndex = 0; 
-const visibleItems = 4; // Number of items visible at a time
+document.addEventListener("DOMContentLoaded", initializeSlider);
 
-// Calculate the maximum index for the slides
-const maxIndex = carouselItems.length - visibleItems;
-
-function updateCarousel() {
-  // Calculate the offset for the carousel
-  const offset = currentIndex * -100 / visibleItems;
-  carouselWrapper.style.transform = `translateX(${offset}%)`;
+if (slides.length > 0) {
+  function initializeSlider() {
+    slides[counter].classList.add("displaySlide");
+    interValid = setInterval(nextSlide, 3000);
+  }
 }
 
-// Event listeners for buttons
-nextBtn.addEventListener('click', () => {
-  if (currentIndex < maxIndex) {
-    currentIndex++;
-  } else {
-    currentIndex = 0; // Wrap around to the beginning
+function showSlide(index) {
+  if (index >= slides.length) {
+    counter = 0;
+  } else if (index < 0) {
+    counter = slides.length - 1;
   }
-  updateCarousel();
-});
+  slides.forEach((slide) => {
+    slide.classList.remove("displaySlide");
+  });
+  slides[counter].classList.add("displaySlide");
+}
 
-prevBtn.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = maxIndex; // Wrap around to the last set of items
-  }
-  updateCarousel();
-});
+function prevSlide() {
+  clearInterval(interValid);
+  counter--;
+  showSlide(counter);
+}
+
+function nextSlide() {
+  counter++;
+  showSlide(counter);
+}
