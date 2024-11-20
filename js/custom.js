@@ -2,7 +2,9 @@ const slides = document.querySelectorAll(".carousel-item");
 let counter = 0;
 let interValid = null;
 
-document.addEventListener("DOMContentLoaded", initializeSlider);
+document.addEventListener("DOMContentLoaded", () => {
+  initializeSlider(); // Initialize the slider after DOM is loaded
+});
 
 if (slides.length > 0) {
   function initializeSlider() {

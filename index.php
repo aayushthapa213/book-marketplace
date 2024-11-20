@@ -109,7 +109,7 @@ if (isset($_POST['add_to_cart'])) {
     <div class="carousel-container">
 
       <?php
-      $query = "SELECT * FROM books ORDER BY book_id LIMIT 7;";
+      $query = "SELECT * FROM books ORDER BY book_id LIMIT 10;";
       $result = mysqli_query($conn, $query);
 
       if (mysqli_num_rows($result) > 0) {
@@ -130,38 +130,7 @@ if (isset($_POST['add_to_cart'])) {
       <?php }
       } ?>
 
-<a href="shop.php"><button class="view_more">View More</button></a>
-
-
-
-      <!-- <div class="carousel-item"><a href="#">
-          <img src="images/books/car.jpg" alt="Book 2">
-          <h3>Sumnima</h3>
-          <p>$14.99</p>
-        </a></div>
-      <div class="carousel-item"><a href="#">
-          <img src="images/books/phone-call.png" alt="Book 3">
-          <h3>Pagal Basti</h3>
-          <p>$24.99</p>
-        </a></div>
-      <div class="carousel-item"><a href="#">
-          <img src="images/books/muna_madan.jpg" alt="Book 4">
-          <h3>Muna Madan</h3>
-          <p>$9.99</p>
-        </a></div>
-      <div class="carousel-item"><a href="#">
-          <img src="images/books/karnali blues.jpg" alt="Book 5">
-          <h3>Damini Bhir</h3>
-          <p>$12.99</p>
-        </a></div>
-      <div class="carousel-item"><a href="#">
-          <img src="images/books/children.jpg" alt="Book 6">
-          <h3>Jiwan Kada Ki Phool</h3>
-          <p>$12.99</p>
-        </a></div> -->
-
-
-
+      <a href="shop.php"><button class="view_more">View More</button></a>
     </div>
     <button class="prev" onclick="prevSlide();">❮</button>
     <button class="next" onclick="nextSlide();">❯</button>
