@@ -22,7 +22,7 @@ if ($authenticated) {
       <li><a href="index.php">Home</a></li>
       <li><a href="../about.php">About</a></li>
       <li><a href="../booksell/shop.php">Shop</a></li>
-      <li><a href="#">Categories</a></li>
+      <li><a href="../booksell/category.php">Categories</a></li>
 
       <li><a href="../booksell/cart.php">Cart
           <?php

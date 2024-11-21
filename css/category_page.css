@@ -1,0 +1,121 @@
+/* Category Page Styles */
+.category-page {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.category-page h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  text-transform: capitalize;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+/* Books Container */
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Book Card */
+.book-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-card a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.book-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.book-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.book-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.book-card .btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-card .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Empty State */
+.books-container p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #999;
+  grid-column: span 3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-card img {
+    height: 180px;
+  }
+
+  .category-page h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-card img {
+    height: 150px;
+  }
+
+  .category-page h2 {
+    font-size: 1.8rem;
+  }
+
+  .book-card .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
