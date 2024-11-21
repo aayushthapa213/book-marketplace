@@ -141,24 +141,28 @@ if (isset($_POST['add_to_cart'])) {
   <!-- Category Section -->
   <section class="category-section">
     <h2>Categories</h2>
-    <div class="category-container">
+    <a href="category_page.php?category=Fiction"><div class="category-container">
       <div class="category">
         <img src="images/fiction.jpg" alt="Category 1">
         <h3>Fiction</h3>
-      </div>
-      <div class="category">
+      </div></a>
+      <a href="category_page.php?category=Non-Fiction"><div class="category">
         <img src="images/non-fiction.jpg" alt="Category 2">
         <h3>Non-Fiction</h3>
       </div>
-      <div class="category">
+    </a>
+      <a href="category_page.php?category=History"><div class="category">
         <img src="images/educational.jpg" alt="Category 3">
-        <h3>Educational</h3>
+        <h3>History</h3>
       </div>
-      <div class="category">
+    </a>
+      <a href="category_page.php?category=Fantasy"><div class="category">
         <img src="images/children.jpg" alt="Category 4">
-        <h3>Children</h3>
+        <h3>Fantasy</h3>
       </div>
+    </a>
     </div>
+    <a href="shop.php"><button class="view_more">View More</button></a>
   </section>
   <script src="./js/custom.js"></script>
 
