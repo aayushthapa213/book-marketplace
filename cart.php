@@ -80,7 +80,7 @@ if (isset($_GET['delete_all'])) {
                   </form>
                 </td>
                 <td>
-                  $<?= $sub_total = number_format($row['price'] * $row['quantity']) ?>
+                  $<?= $sub_total = $row['price'] * $row['quantity'] ?>
                 </td>
                 <td>
                   <a href="cart.php?remove=<?= $row['cart_id']; ?>" onclick="return confirm('Remove item from cart?')" class="delete">Remove</a>

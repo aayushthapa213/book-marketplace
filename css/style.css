@@ -4,9 +4,11 @@ body{
 }
 
 .hero-section {
-  /* top: 0; */
   width: 100%;
   height: 100vh; 
+  position: relative;
+  top: -70px;
+  z-index: -1;
 }
 
 .hero-section .home_img img{

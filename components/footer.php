@@ -21,8 +21,8 @@ if (isset($_SESSION["email"])) {
       <div class="footer-box-item">
         <h3>Navigation</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="shop.php">Shop</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -31,10 +31,10 @@ if (isset($_SESSION["email"])) {
       <div class="footer-box-item">
         <h3>Categories</h3>
         <ul>
-          <li><a href="#">Fiction</a></li>
-          <li><a href="#">Non-Fiction</a></li>
-          <li><a href="#">Science</a></li>
-          <li><a href="#">History</a></li>
+          <li><a href="category_page.php?category=Fiction">Fiction</a></li>
+          <li><a href="category_page.php?category=Non-Fiction">Non-Fiction</a></li>
+          <li><a href="category_page.php?category=Science">Science</a></li>
+          <li><a href="category_page.php?category=History">History</a></li>
         </ul>
       </div>
       <!-- Box 4 -->

@@ -36,7 +36,7 @@ if (isset($_POST['add_to_cart'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/shop.css"> <!-- Add a link to your CSS file -->
-  <link rel="stylesheet" href="./css/head.css" />
+  <link rel="stylesheet" href="./css/header.css" />
   <title>Book Shop</title>
 </head>
 
