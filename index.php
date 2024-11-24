@@ -34,17 +34,21 @@ if (isset($_POST['add_to_cart'])) {
   <link rel="stylesheet" href="./css/header.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/footer.css" />
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title>BuySellBooks</title>
 </head>
 
 <body>
   <!-- Hero Section -->
   <section class="hero-section">
-    <div class="home_img">
-      <img src="images/books/Design.jpeg" alt="Hero Image">
+    <div class="home_video">
+      <video autoplay muted loop>
+        <source src="images/others/hero_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="div_container">
         <div class="div_1">
-          <p>Discover, Buy, and Sell Your Favorite Books</p>
+          <p>Discover, Buy, And <br>Sell Your Favorite Books</p>
         </div>
         <div class="div_2">
           <p>Connecting readers and sellers in Nepal and beyond.</p>
@@ -72,18 +76,21 @@ if (isset($_POST['add_to_cart'])) {
               <div class="card">
                 <img src="images/books/<?= $row['image_path']; ?>" alt="Image Not Found">
                 <h3><?= $row['book_name']; ?></h3>
-                <p> <?= $row['price']; ?></p>
+                <p>Price: $<?= $row['price']; ?></p>
+                <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
+                <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
+                <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
+                <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
                 <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
               </div>
             </a>
           </form>
       <?php }
       } ?>
-
-
-
-      <a href="shop.php"><button class="view_more">View More</button></a>
+    </div>
+    <a href="shop.php" class="view-more-btn">View More</a>
   </section>
+
 
   <!-- Video Hero Section -->
   <section class="video-hero-section">
@@ -141,22 +148,27 @@ if (isset($_POST['add_to_cart'])) {
   <!-- Category Section -->
   <section class="category-section">
     <h2>Categories</h2>
-    <a href="category_page.php?category=Fiction"><div class="category-container">
+    <a href="category_page.php?category=Fiction">
+      <div class="category-container">
+        <div class="category">
+          <img src="images/fiction.jpg" alt="Category 1">
+          <h3>Fiction</h3>
+        </div>
+    </a>
+    <a href="category_page.php?category=Non-Fiction">
       <div class="category">
-        <img src="images/fiction.jpg" alt="Category 1">
-        <h3>Fiction</h3>
-      </div></a>
-      <a href="category_page.php?category=Non-Fiction"><div class="category">
         <img src="images/non-fiction.jpg" alt="Category 2">
         <h3>Non-Fiction</h3>
       </div>
     </a>
-      <a href="category_page.php?category=History"><div class="category">
+    <a href="category_page.php?category=History">
+      <div class="category">
         <img src="images/educational.jpg" alt="Category 3">
         <h3>History</h3>
       </div>
     </a>
-      <a href="category_page.php?category=Fantasy"><div class="category">
+    <a href="category_page.php?category=Fantasy">
+      <div class="category">
         <img src="images/children.jpg" alt="Category 4">
         <h3>Fantasy</h3>
       </div>

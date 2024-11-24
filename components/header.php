@@ -43,7 +43,7 @@ if ($authenticated) {
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/booksell/dashboard.php">Dashboard</a></li>
-              
+
               <li><a class="dropdown-item" href="/booksell/logout.php">Log Out</a></li>
             </ul>
           </li>
@@ -51,7 +51,7 @@ if ($authenticated) {
       <?php } else { ?>
         <div class="log_in">
           <a href="/bookSell/register.php">
-            <img src="/bookSell/images/icons/he.png" alt="Login">
+            <i class="fa-solid fa-user"></i>
           </a>
         </div>
       <?php } ?>
