@@ -54,7 +54,7 @@ if (isset($_POST['add_to_cart'])) {
           <p>Connecting readers and sellers in Nepal and beyond.</p>
         </div>
         <div class="div_3">
-          <input type="text" placeholder="Search for books...">
+          <input type="input" placeholder="Search for books...">
         </div>
       </div>
     </div>
@@ -75,20 +75,24 @@ if (isset($_POST['add_to_cart'])) {
             <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
               <div class="card">
                 <img src="images/books/<?= $row['image_path']; ?>" alt="Image Not Found">
-                <h3><?= $row['book_name']; ?></h3>
-                <p>Price: $<?= $row['price']; ?></p>
-                <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
-                <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
-                <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
-                <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
-                <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                <div class="details">
+                  <h3><?= $row['book_name']; ?></h3>
+                  <p>Price: $<?= $row['price']; ?></p>
+                  <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
+                  <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
+                  <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
+                  <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
+                  <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                </div>
               </div>
             </a>
           </form>
       <?php }
       } ?>
     </div>
-    <a href="shop.php" class="view-more-btn">View More</a>
+    <span>
+      <a href="shop.php" class="view-more-btn">View More</a>
+    </span>
   </section>
 
 
@@ -127,20 +131,26 @@ if (isset($_POST['add_to_cart'])) {
           <form action="" method="post">
             <div class="carousel-item">
               <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
-                <img src="images/books/<?= $row['image_path']; ?>" alt="Book 1">
-                <h3><?= $row['book_name']; ?></h3>
-                <p> <?= $row['price']; ?></p>
-                <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                <figure>
+                  <img src="images/books/<?= $row['image_path']; ?>" alt="Book 1">
+                </figure>
+                <div class="details">
+                  <h3><?= $row['book_name']; ?></h3>
+                  <p> <?= $row['price']; ?></p>
+                  <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                </div>
               </a>
             </div>
           </form>
       <?php }
       } ?>
 
-      <a href="shop.php"><button class="view_more">View More</button></a>
     </div>
     <button class="prev" onclick="prevSlide();">❮</button>
     <button class="next" onclick="nextSlide();">❯</button>
+    <span>
+      <a href="shop.php">View More</a>
+    </span>
   </section>
 
 
@@ -174,7 +184,9 @@ if (isset($_POST['add_to_cart'])) {
       </div>
     </a>
     </div>
-    <a href="category.php"><button class="view_more">View More</button></a>
+    <span>
+      <a href="shop.php" class="view-more-btn">View More</a>
+    </span>
   </section>
   <script src="./js/custom.js"></script>
 

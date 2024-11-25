@@ -24,7 +24,7 @@ $user_id = $_SESSION['id'];
 
   if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM books WHERE book_id = $delete_id");
+    mysqli_query($conn, "DELETE FROM books WHERE book_id = '$delete_id'");
     header("Location: " . $_SERVER['PHP_SELF']);
   }
 
