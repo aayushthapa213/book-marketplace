@@ -44,7 +44,8 @@ nav {
 
 .nav-menu a {
   color: #e0e1dd;
-  text-decoration: none;
+  text-decoration: none; 
+  font-family: Arial, sans-serif;
   font-size: 16px;
   transition: color 0.3s ease;
 }
@@ -57,7 +58,6 @@ nav {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  color: red;
 }
 
 .log_in i{
@@ -119,4 +119,3 @@ nav {
   display: block;
 }
 
-/* .navbar-nav:hover  */

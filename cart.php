@@ -38,6 +38,7 @@ if (isset($_GET['delete_all'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/head.css" />
+  <link rel="stylesheet" href="./css/foot.css" />
   <link rel="stylesheet" href="./css/cart.css" />
   <title>Shopping Cart</title>
 </head>
@@ -108,3 +109,7 @@ if (isset($_GET['delete_all'])) {
 </body>
 
 </html>
+
+<?php
+include('./components/footer.php');
+?>

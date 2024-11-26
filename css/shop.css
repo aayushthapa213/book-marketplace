@@ -1,99 +1,160 @@
-/* General styles for body and container */
-body {
-  font-family: 'Arial', sans-serif;
+/* Global Reset */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
-  line-height: 1.6;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
+body {
+  background: #121212;
+  color: #e0e0e0; 
+}
+
+/* Messages */
+.message {
+  display: block;
+  width: fit-content;
+  background-color: #1db954; /* Green success message */
+  color: white;
+  padding: 10px 20px;
+  margin: 15px auto;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Container */
 .container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* background-color: gray; */
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-/* Header and title styles */
-h1 {
+/* Products Section */
+.products {
+  /* background-color: red; */
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
 }
 
-/* Shop container and product box styling */
+.products h1 {
+  font-size: 3rem;
+  display: flex;
+  text-align: center;
+  justify-content: left;
+  font-weight: 700;
+  color: #f0f0f0; 
+  margin-bottom: 2.5rem;
+}
+
 .shop_container {
+  /* background-color: yellow; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
+/* Product Cards */
 .box {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #1e1e1e; /* Dark card background */
+  height: 550px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  transition: transform 0.3s ease;
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding:2% 0;
 }
 
 .box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* Image styling */
 .box img {
-  width: 100%;
-  height: 200px;
+  width: 90%;
+  margin: auto;
+  height: 74%;
+  border-radius: 10px;
+  /* aspect-ratio: 9 / 16; */
   object-fit: cover;
-  border-bottom: 2px solid #ddd;
+  transition: transform 0.3s ease;
+  border-bottom: 2px solid #1db954;
 }
 
-/* Product details */
+.box:hover img {
+  transform: scale(1.05);
+}
+
 .box h3 {
-  margin: 10px 0;
-  color: #444;
+  /* background-color: red; */
+  height: 8%;
+  font-size: 1.4rem;
+  color: #e0e0e0; /* Light text for readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 20px 15px; */
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
-.price {
-  color: #28a745;
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
-/* Button styling */
-.btn {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-transform: uppercase;
+.box .price {
+  height: 8%;
+  /* background-color: green; */
+  font-size: 1.2rem;
+  color: #1ed760; /* Green accent for price */
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 15px 20px; */
+}
+
+.btn {
+  /* background-color: #1db954; */
+  height: 8%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 10px 15px; */
+  padding: 12px 20px;
+  background: linear-gradient(to right, #1db954, #1ed760);
+  color: #000; /* Dark text for button contrast */
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background: linear-gradient(to right, #17a846, #17a846);
+  transform: scale(1.05);
 }
 
-/* Responsive design */
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+  .products h1 {
+    font-size: 2rem;
+  }
+
   .shop_container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
-
-@media (max-width: 480px) {
-  .shop_container {
-    grid-template-columns: 1fr;
-  }
-  .box img {
-    height: 150px;
-  }
-} 

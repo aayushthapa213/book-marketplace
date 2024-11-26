@@ -11,7 +11,7 @@ include('dashbase.php'); // Contains your $conn database connection
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/head.css">
   <link rel="stylesheet" href="./css/category.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/foot.css">
   <title>Categories</title>
 </head>
 

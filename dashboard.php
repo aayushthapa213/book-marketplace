@@ -11,6 +11,8 @@ $user_id = $_SESSION['id'];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/dashboard.css" />
+  <link rel="stylesheet" href="./css/head.css">
+  <link rel="stylesheet" href="./css/foot.css">
   <title><?= $_SESSION['first_name'] ?></title>
 </head>
 
@@ -112,3 +114,7 @@ $user_id = $_SESSION['id'];
 </body>
 
 </html>
+
+<?php
+include('./components/footer.php');
+?>

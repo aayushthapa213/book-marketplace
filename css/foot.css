@@ -1,0 +1,133 @@
+/* General Footer Styles */
+footer {
+  padding: 2rem 0;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  margin: 74px auto 0 auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Upper Section */
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  margin-bottom: 2rem;
+  gap: 20px; /* Space between items */
+}
+
+.footer-box-item {
+  flex: 1;
+  min-width: 200px; /* Ensures items stack on smaller screens */
+  margin: 0 10px;
+}
+
+.footer-box-item h2,
+.footer-box-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1db954; /* Bright green accent */
+}
+
+.footer-box-item p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #b3b3b3; /* Muted text for descriptions */
+}
+
+.footer-box-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box-item ul li {
+  margin-bottom: 10px;
+}
+
+.footer-box-item ul li a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: color 0.3s ease;
+}
+
+.footer-box-item ul li a:hover {
+  color: #1db954; /* Hover accent color */
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.social-icon img {
+  width: 32px; /* Uniform size for icons */
+  height: 32px;
+  filter: brightness(0) invert(1); /* White icons on dark background */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(0.5); /* Slight hover effect */
+}
+
+/* Sell Books Button */
+.sell-books-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #1db954, #1ed760); /* Modern green gradient */
+  color: #121212; /* Dark text for contrast */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.sell-books-btn:hover {
+  background: #17a846; /* Solid green hover state */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #999; /* Muted text for copyright */
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-box {
+    flex-direction: column; /* Stack items on smaller screens */
+    gap: 30px;
+  }
+
+  .footer-box-item {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}

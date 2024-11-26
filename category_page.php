@@ -45,11 +45,19 @@ if (isset($_POST['add_to_cart'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/category_page.css">
   <link rel="stylesheet" href="./css/head.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/foot.css">
   <title><?= htmlspecialchars($category); ?> </title>
 </head>
 
 <body>
+  <?php
+  if (isset($message)) {
+    foreach ($message as $message) {
+      echo '<span class="message">' . $message . '</span>';
+    }
+  }
+  ?>
+
   <section class="category-page">
     <h2><?= htmlspecialchars($category); ?></h2>
     <div class="books-container">

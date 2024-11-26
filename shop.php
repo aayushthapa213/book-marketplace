@@ -1,6 +1,6 @@
 <?php
 include('./components/header.php');
-include('dashbase.php'); // Contains your $conn database connection
+include('dashbase.php');
 
 if (isset($_POST['add_to_cart'])) {
   if ($authenticated) {
@@ -26,18 +26,20 @@ if (isset($_POST['add_to_cart'])) {
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/shop.css"> <!-- Add a link to your CSS file -->
-  <link rel="stylesheet" href="./css/header.css" />
-  <title>Book Shop</title>
+  <link rel="stylesheet" href="./css/head.css" />
+  <link rel="stylesheet" href="./css/foot.css" />
+  <link rel="stylesheet" href="css/shop.css">
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
+
+  <title>Shop</title>
 </head>
 
 <body>
@@ -63,16 +65,16 @@ if (isset($_POST['add_to_cart'])) {
             <form action="" method="post">
               <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
                 <div class="box">
-                <img src="images/books/<?= $row['image_path']; ?>" alt="">
-                <h3><?= $row['book_name']; ?></h3>
-                <div class="price"><?= $row['price']; ?></div>
-                <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
-                <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
-                <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
-                <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
-                <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
-              </div>
-            </a>
+                  <img src="images/books/<?= $row['image_path']; ?>" alt="">
+                  <h3><?= $row['book_name']; ?></h3>
+                  <div class="price"><?= $row['price']; ?></div>
+                  <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
+                  <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
+                  <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
+                  <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
+                  <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                </div>
+              </a>
             </form>
         <?php }
         } ?>
@@ -83,3 +85,7 @@ if (isset($_POST['add_to_cart'])) {
 </body>
 
 </html>
+
+<?php
+include('./components/footer.php');
+?>

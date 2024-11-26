@@ -49,6 +49,7 @@ if (isset($_POST['add_to_cart'])) {
     <title>Book Details</title>
     <link rel="stylesheet" href="./css/book_landing.css">
     <link rel="stylesheet" href="./css/head.css">
+    <link rel="stylesheet" href="./css/foot.css">
 </head>
 
 <body>
@@ -80,3 +81,7 @@ if (isset($_POST['add_to_cart'])) {
 </body>
 
 </html>
+
+<?php
+include('./components/footer.php');
+?>
