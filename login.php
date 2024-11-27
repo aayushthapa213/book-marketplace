@@ -58,8 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/head.css">
 </head>
 
 <body>
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <button type="button" class="close-alert">×</button>
             </div>
         <?php } ?>
-        
+
         <!-- Form structure remains the same -->
         <form id="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Login</h1>

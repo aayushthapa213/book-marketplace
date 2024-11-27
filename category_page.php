@@ -46,6 +46,7 @@ if (isset($_POST['add_to_cart'])) {
   <link rel="stylesheet" href="./css/category_page.css">
   <link rel="stylesheet" href="./css/head.css">
   <link rel="stylesheet" href="./css/foot.css">
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title><?= htmlspecialchars($category); ?> </title>
 </head>
 

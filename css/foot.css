@@ -32,13 +32,13 @@ footer {
 .footer-box-item h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #1db954; /* Bright green accent */
+  color: #BB86FC; /* Primary Accent Color */
 }
 
 .footer-box-item p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: #b3b3b3; /* Muted text for descriptions */
+  color: #A0A0A0; /* Muted text for descriptions */
 }
 
 .footer-box-item ul {
@@ -58,26 +58,25 @@ footer {
 }
 
 .footer-box-item ul li a:hover {
-  color: #1db954; /* Hover accent color */
+  color: #6200EA; /* Secondary Highlight Color */
 }
 
 /* Social Icons */
 .social-icons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   gap: 15px;
   margin-bottom: 1.5rem;
 }
 
-.social-icon img {
-  width: 32px; /* Uniform size for icons */
-  height: 32px;
+.social-icon i{
+  font-size: x-large;
   filter: brightness(0) invert(1); /* White icons on dark background */
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.social-icon:hover img {
+.social-icon:hover i{
   transform: scale(1.1);
   filter: brightness(0) invert(0.5); /* Slight hover effect */
 }
@@ -86,7 +85,7 @@ footer {
 .sell-books-btn {
   display: inline-block;
   margin-top: 10px;
-  background: linear-gradient(90deg, #1db954, #1ed760); /* Modern green gradient */
+  background: linear-gradient(90deg, #BB86FC, #9A67EA); /* Gradient using Primary and Secondary Colors */
   color: #121212; /* Dark text for contrast */
   border: none;
   padding: 12px 24px;
@@ -100,7 +99,7 @@ footer {
 }
 
 .sell-books-btn:hover {
-  background: #17a846; /* Solid green hover state */
+  background: #6200EA; /* Secondary Highlight Color on hover */
   transform: translateY(-3px); /* Slight lift effect */
 }
 

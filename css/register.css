@@ -1,99 +1,116 @@
+/* Dark Mode Styling */
 body {
-  background-color: #E0E1DD;
+  background-color: #121212; 
   font-family: 'Poppins', sans-serif;
-}
-header{
-  box-shadow: none;
-}
-header .nav-menu a{
-  color: #0D1B2A;
+  color: #E0E0E0; 
 }
 
-header .logo a{
-  color: #0D1B2A;
+.container{
+  width: 90%;
+  height: fit-content;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
 }
-
-
 
 #form {
-  width: 340px;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* margin: 20vh auto 0 auto; */
+  width: 360px;
   padding: 2rem;
-  background-color: whitesmoke;
+  background-color: #1F1F1F; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
 }
 
 #form h1 {
-  color: #0f2027;
+  color: #BB86FC;
   text-align: center;
   font-size: 44px;
   margin-bottom: 1.5rem;
 }
 
-#form button {
-  padding: 10px;
-  margin-top: 1rem;
-  width: 100%;
-  color: #E0E1DD;
-  background-color: rgb(41, 57, 194);
-  border: none;
-  border-radius: 8px;
-}
-
 .input-control {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.input-control label{
+.input-control label {
+  color: #E0E0E0;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .input-control input {
-  border: 2px solid #E0E1DD;    
-  border-radius: 8px;
-  display: block;
-  font-size: 1rem;
+  border: 2px solid #333; 
+  background-color: #2C2C2C; 
+  color: #E0E0E0; 
   padding: 12px;
+  border-radius: 8px;
   width: 100%;
+  font-size: 1rem;
 }
 
 .input-control input:focus {
-  outline: 0;
+  border-color: #BB86FC;
+  outline: none;
 }
 
 .input-control.success input {
-  border-color: #09c372;
+  border-color: #09c372; 
 }
 
 .input-control.error input {
-  border-color: #ff3860;
+  border-color: #CF6679; 
 }
 
 .input-control .error {
-  color: #ff3860;
-  font-size: 9px;
-  height: 13px;
+  color: #CF6679; /* Light red text */
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #BB86FC; 
+  color: #121212; 
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9B59B6; 
 }
 
 .already-registered {
-  margin-top: 20px;
+  margin-top: 1.5rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #777;
+  color: #999;
 }
 
 .already-registered a {
-  color: #007BFF;
+  color: #BB86FC;
   text-decoration: none;
 }
 
 .already-registered a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #form {
+    width: 90%;
+  }
+
+  #form h1 {
+    font-size: 36px;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
 }

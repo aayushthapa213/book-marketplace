@@ -42,22 +42,20 @@ if (isset($_SESSION["email"])) {
         <h3>Follow Us</h3>
         <div class="social-icons">
           <a href="#" class="social-icon">
-            <img src="images/facebook.png" alt="" />
+            <i class="fa-brands fa-facebook"></i>
           </a>
           <a href="#" class="social-icon">
-            <img src="images/instagram.png" alt="" />
-          </a>
+            <i class="fa-brands fa-instagram"></i> </a>
           <a href="#" class="social-icon">
-            <img src="images/twitter.png" alt="" />
-          </a>
+            <i class="fa-brands fa-twitter"></i> </a>
           <a href="#" class="social-icon">
-            <img src="images/twitch.png" alt="" />
-          </a>
+            <i class="fa-brands fa-youtube"></i> </a>
         </div>
         <?php
         if ($authenticated) {
-        ?>
-          <button class="sell-books-btn">Sell Books</button>
+        ?><a href="dashboard.php">
+            <button class="sell-books-btn">Sell Books</button>
+          </a>
         <?php } ?>
       </div>
     </div>

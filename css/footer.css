@@ -43,9 +43,10 @@ footer {
   color: #1B263B;
 }
 
-.social-icons {
+.footer-box-item .social-icons {
+  background-color: rebeccapurple;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   margin-bottom: 1rem;
 }
 
@@ -54,9 +55,9 @@ footer {
   text-decoration: none;
 }
 
-.social-icons img{
-  width: 1.5rem;
-  height: 1.5rem;
+.social-icons .social-icon i{
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .footer-box-item ul li a:hover {

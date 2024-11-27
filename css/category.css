@@ -1,6 +1,7 @@
+/* Global Styles */
 body {
-  background: #121212;
-  color: #e0e0e0; 
+  background: #121212; /* Dark background for the body */
+  color: #E0E1DD; /* Light gray text for high contrast */
 }
 
 /* General Section */
@@ -9,15 +10,15 @@ body {
   margin: 50px auto;
   padding: 2rem;
   text-align: center;
-  background-color: #1e1e1e; /* Dark background */
+  background-color: #1E1E1E; /* Dark background for sections */
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Dark shadow for depth */
 }
 
 .category-section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #1db954; /* Vibrant green */
+  color: #BB86FC; /* Primary accent color for headings */
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -36,10 +37,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 150px;
-  background-color: #2b2b2b; /* Dark card background */
+  background-color: #2B2B2B; /* Dark background for category boxes */
   border-radius: 12px;
   text-decoration: none;
-  color: #e0e0e0; /* Light text */
+  color: #E0E1DD; /* Light text for readability */
   font-size: 1.5rem;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
@@ -47,10 +48,10 @@ body {
 }
 
 .category-box:hover {
-  transform: scale(1.08); /* Lift effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
-  background-color: #1db954; /* Vibrant green hover */
-  color: #121212; /* Dark text on hover */
+  transform: scale(1.08); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+  background-color: #BB86FC; /* Primary color hover effect */
+  color: #121212; /* Dark text for contrast on hover */
 }
 
 /* Responsive Design */

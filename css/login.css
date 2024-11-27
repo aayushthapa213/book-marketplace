@@ -1,29 +1,21 @@
-/* Container styling */
+/* General body styling for dark mode */
 body {
-  background-color: #E0E1DD;
+  background-color: #121212; /* Deep dark background */
   font-family: 'Poppins', sans-serif;
+  color: #E0E1DD; /* Light text color */
 }
 
-header .nav-menu a{
-  color: #0D1B2A;
-}
 
-header .logo a{
-  color: #0D1B2A;
-}
-
+/* Container styling */
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 340px;
-  /* margin: 100px auto; */
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 360px;
   padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: whitesmoke;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(145deg, #1e1e1e, #292929); /* Subtle gradient for modern effect */
 }
 
 /* Form title */
@@ -31,7 +23,7 @@ h1 {
   text-align: center;
   font-size: 44px;
   margin-bottom: 1.5rem;
-  color: #0f2027;
+  color: #BB86FC; /* Attractive accent color */
 }
 
 /* Input fields styling */
@@ -43,21 +35,24 @@ h1 {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: #0D1B2A;
+  color: #E0E1DD;
 }
 
 .input-control input {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
-  border: 2px solid #E0E1DD;
+  border: 2px solid #333; /* Darker border */
   border-radius: 8px;
+  background-color: #1E1E1E; /* Input background matches the theme */
+  color: #E0E1DD; /* Light text for visibility */
   outline: none;
-  transition: border 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .input-control input:focus {
-  border-color: #007BFF;
+  border-color: #BB86FC; /* Accent color for focus */
+  box-shadow: 0 0 8px rgba(187, 134, 252, 0.6);
 }
 
 /* Button styling */
@@ -65,23 +60,24 @@ button {
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
-  background-color: #007BFF;
+  background: linear-gradient(145deg, #BB86FC, #6200EA); /* Gradient for button */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(145deg, #9A67EA, #4B0082); /* Darker hover effect */
+  box-shadow: 0 4px 8px rgba(187, 134, 252, 0.4);
 }
 
 /* Error message styling */
 .error {
-  color: red;
+  color: #CF6679; /* Highlight errors in red */
   font-size: 0.875rem;
-  height: 1rem; /* Make space for error messages */
+  height: 1rem; /* Space for error messages */
 }
 
 /* Not registered section */
@@ -89,14 +85,56 @@ button:hover {
   margin-top: 1.5rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #777;
+  color: #A0A0A0;
 }
 
 .not-registered a {
-  color: #007BFF;
+  color: #BB86FC; /* Accent link color */
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .not-registered a:hover {
-  text-decoration: underline;
+  color: #E0E1DD;
+}
+
+/* Alert message */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #CF6679; /* Subtle red for alerts */
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert .close-alert {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.alert .close-alert:hover {
+  color: #121212;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
 }

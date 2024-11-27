@@ -20,7 +20,7 @@ if ($authenticated) {
     <!-- Middle: Navigation Menu -->
     <ul class="nav-menu">
       <li><a href="index.php">Home</a></li>
-      <li><a href="../about.php">About</a></li>
+      <li><a href="../booksell/about.php">About</a></li>
       <li><a href="../booksell/shop.php">Shop</a></li>
       <li><a href="../booksell/category.php">Categories</a></li>
 

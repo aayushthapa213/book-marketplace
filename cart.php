@@ -40,6 +40,7 @@ if (isset($_GET['delete_all'])) {
   <link rel="stylesheet" href="./css/head.css" />
   <link rel="stylesheet" href="./css/foot.css" />
   <link rel="stylesheet" href="./css/cart.css" />
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title>Shopping Cart</title>
 </head>
 

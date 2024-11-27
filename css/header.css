@@ -6,14 +6,12 @@
 
 /* Header Styles */
 header {
-  /* background-color: gray; */
   width: 100%;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 nav {
-  /* background-color: green; */
   padding: 0 110px;
   display: flex;
   justify-content: space-between; 
@@ -27,7 +25,7 @@ nav {
 }
 
 .logo a {
-  color: #e0e1dd;
+  color: #BB86FC;;
   text-decoration: none;
 }
 
@@ -43,7 +41,7 @@ nav {
 }
 
 .nav-menu a {
-  color: #e0e1dd;
+  color: #E0E1DD;
   text-decoration: none; 
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -51,7 +49,7 @@ nav {
 }
 
 .nav-menu a:hover {
-  color: #007bff;
+  color: #BB86FC;
 }
 
 .login-icon {
@@ -68,7 +66,7 @@ nav {
   align-items: center;
   justify-content: center;
   font-size: x-large;
-  color: white;
+  color: #E0E1DD;
 }
 
 .navbar-nav{
@@ -83,7 +81,7 @@ nav {
 
 .nav-item a{
   text-decoration: none;
-  color: #e0e1dd;
+  color: #E0E1DD;
 
 }
 
@@ -106,13 +104,13 @@ nav {
   align-items: center;
   border-radius: 8px;
   margin: 4px 0;
-  background-color: whitesmoke;
+  background-color: #1E1E1E;
 }
 
 .dropdown-menu li a{
   /* background-color: yellow; */
   text-decoration: none;
-  color: black;
+  color: #E0E1DD;
 }
 
 .navbar-nav:hover .dropdown-menu{

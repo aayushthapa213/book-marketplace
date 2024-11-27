@@ -1,8 +1,10 @@
 
 body{
-  background-color: #e0e1dd;
+  background: #121212; 
+  color: #E0E1DD;  
   box-sizing: border-box;
   margin: 0;
+  font-family: 'Inter', sans-serif;
   padding: 0;
 }
 
@@ -13,7 +15,6 @@ a{
 /* Hero Section */
 
 .hero-section {
-  background-color: #0056b3;
   width: 100%;
   height: 100vh; 
   position: relative;
@@ -108,7 +109,7 @@ a{
 .best-seller h2 {
   font-size: 44px;
   margin-bottom: 53px;
-  color: #0D1B2A; 
+  color: #E0E1DD; 
 }
 
 /* Card Container */
@@ -150,32 +151,37 @@ a{
 }
 
 .card h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.25rem;
   color: #0d1b2a;
-  margin: 1rem 0 0.5rem;
+  margin: 0.5rem;
   font-family: 'Poppins', sans-serif;
 }
 
 .card p {
   font-size: 1rem;
-  color: #778da9;
-  margin-bottom: 1rem;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 0.5rem;
 }
 
 /* Add to Cart Button */
 .card .btn {
-  background: #0056b3;
-  color: #ffffff;
+  background-color: #6200EA;
+  color: #E0E1DD;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .card .btn:hover {
-  background-color: #003d7c;
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
+  transform: scale(1.05);
 }
 
 /* View More Button */
@@ -189,8 +195,8 @@ a{
   display: inline-block;
   margin-top: 2rem;
   padding: 0.8rem 2rem;
-  background-color: #0056b3;
-  color: #ffffff;
+  background-color: #6200EA;
+  color: #E0E1DD;
   text-decoration: none;
   border-radius: 25px;
   font-size: 1.2rem;
@@ -199,7 +205,8 @@ a{
 }
 
 .view-more-btn:hover {
-  background-color: #003d7c;
+  background-color: #9A67EA;
+  transform: translateY(-2px);
 }
 
 /* Responsive Design */
@@ -272,7 +279,7 @@ a{
 .visit-shop-btn {
   display: inline-block;
   padding: 0.8rem 2rem;
-  background-color: blue;
+  background-color: #6200EA;
   color: #E0E1DD;
   border: none;
   border-radius: 25px;
@@ -283,7 +290,8 @@ a{
 }
 
 .visit-shop-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
+  transform: scale(1.05);
 }
 
 
@@ -302,7 +310,7 @@ a{
 .featured-section h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #0D1B2A;
+  color: #E0E1DD;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -340,7 +348,8 @@ a{
 .carousel-item figure img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
+  transform: scale(0.9);
   border-radius: 12px;
 }
 
@@ -383,8 +392,8 @@ a{
 }
 
 .carousel-item .details .btn {
-  background-color: #0056b3;
-  color: #ffffff;
+  background-color: #6200EA;
+  color: #E0E1DD;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border: none;
@@ -394,7 +403,7 @@ a{
 }
 
 .carousel-item .details .btn:hover {
-  background-color: #003d7c;
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
   transform: scale(1.05);
 }
 
@@ -440,9 +449,9 @@ button.next:hover {
 }
 
 .featured-section span a {
-  background-color: #0056b3;
+  background-color: #6200EA;
   padding: 0.8rem 2rem;
-  color: #ffffff;
+  color: #E0E1DD;
   text-decoration: none;
   border-radius: 25px;
   font-size: 1.2rem;
@@ -451,7 +460,7 @@ button.next:hover {
 }
 
 .featured-section span a:hover {
-  background-color: #003d7c;
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
   transform: scale(1.05);
 }
 
@@ -544,7 +553,7 @@ button.next:hover {
 .category-section h2 {
   font-size: 44px;
   margin-bottom: 53px;
-  color: #0D1B2A;
+  color: #E0E1DD;
 }
 
 .category-container {

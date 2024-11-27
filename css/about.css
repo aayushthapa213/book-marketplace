@@ -1,0 +1,125 @@
+body {
+  background: #121212; 
+  color: #E0E1DD; 
+}
+
+/* About Section */
+.about-section {
+  /* background-color: red; */
+  width: 90%;
+  height: fit-content;
+  margin: 1rem auto;
+  /* padding: 1rem; */
+  border-radius: 15px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.about-container {
+  /* background-color: gray; */
+  width: 100%;
+  height: fit-content;
+  }
+
+.about-container h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #BB86FC;
+  text-align: center;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mission, .team, .contact-us {
+  /* background-color: yellow; */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mission h2, .team h2, .contact-us h2 {
+  font-size: 2.2rem;
+  color: #BB86FC;
+  margin-bottom: 10px;
+}
+
+.mission p, .team p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  padding-left: 1rem;
+
+}
+
+.team ul {
+  /* background-color: #ff9e00; */
+  list-style-type: none;
+  text-align: center;
+    padding-left: 1rem;
+}
+
+.team ul li {
+  /* background-color: aqua; */
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.team ul li strong {
+  color: #BB86FC;
+}
+
+.contact-us{
+  /* display: flex; */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-us p{
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  padding-left: 1rem;
+}
+/* Contact Form */
+.contact-form {
+  
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: flex;
+  align-items: left;
+  font-size: 1.1rem;
+  color: #CF6679;
+  margin: 10px 0;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #ffba00;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #ff9e00;
+}

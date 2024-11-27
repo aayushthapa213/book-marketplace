@@ -33,7 +33,7 @@ if (isset($_POST['add_to_cart'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/header.css" />
   <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/foot.css" />
   <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title>BuySellBooks</title>
 </head>
@@ -77,7 +77,7 @@ if (isset($_POST['add_to_cart'])) {
                 <img src="images/books/<?= $row['image_path']; ?>" alt="Image Not Found">
                 <div class="details">
                   <h3><?= $row['book_name']; ?></h3>
-                  <p>Price: $<?= $row['price']; ?></p>
+                  <p>$<?= $row['price']; ?></p>
                   <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
                   <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
                   <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
@@ -107,7 +107,7 @@ if (isset($_POST['add_to_cart'])) {
         <div class="text-content">
           <h2>About Us</h2>
           <p>We are dedicated to connecting readers and book lovers with quality books, making it easier to buy and sell new and used books. Explore our vast collection and support the local book community.</p>
-          <a href="#" class="visit-shop-btn">Visit Shop</a>
+          <a href="shop.php" class="visit-shop-btn">Visit Shop</a>
         </div>
       </div>
     </div>
@@ -161,31 +161,31 @@ if (isset($_POST['add_to_cart'])) {
     <a href="category_page.php?category=Fiction">
       <div class="category-container">
         <div class="category">
-          <img src="images/fiction.jpg" alt="Category 1">
+          <img src="images/category/fiction.png" alt="Category 1">
           <h3>Fiction</h3>
         </div>
     </a>
     <a href="category_page.php?category=Non-Fiction">
       <div class="category">
-        <img src="images/non-fiction.jpg" alt="Category 2">
+        <img src="images/category/non-fiction.png" alt="Category 2">
         <h3>Non-Fiction</h3>
       </div>
     </a>
     <a href="category_page.php?category=History">
       <div class="category">
-        <img src="images/educational.jpg" alt="Category 3">
+        <img src="images/category/history.png" alt="Category 3">
         <h3>History</h3>
       </div>
     </a>
     <a href="category_page.php?category=Fantasy">
       <div class="category">
-        <img src="images/children.jpg" alt="Category 4">
+        <img src="images/category/fantasy.png" alt="Category 4">
         <h3>Fantasy</h3>
       </div>
     </a>
     </div>
     <span>
-      <a href="shop.php" class="view-more-btn">View More</a>
+      <a href="shop.php" class="view-more-btn">View All</a>
     </span>
   </section>
   <script src="./js/custom.js"></script>

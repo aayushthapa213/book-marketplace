@@ -13,6 +13,7 @@ $user_id = $_SESSION['id'];
   <link rel="stylesheet" href="./css/dashboard.css" />
   <link rel="stylesheet" href="./css/head.css">
   <link rel="stylesheet" href="./css/foot.css">
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title><?= $_SESSION['first_name'] ?></title>
 </head>
 

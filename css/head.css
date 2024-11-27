@@ -9,7 +9,8 @@
 header {
   width: 100%;
   padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Darker shadow for contrast */
+  background: #121212; 
 }
 
 nav {
@@ -21,11 +22,10 @@ nav {
 
 .logo {
   flex: 1; 
-  
 }
 
 .logo a {
-  color: #b91b1b;
+  color: #BB86FC; /* Accent color */
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
@@ -36,14 +36,15 @@ nav {
   flex: 2;
   display: flex;
   justify-content: center;
-  list-style-type: none;}
+  list-style-type: none;
+}
 
 .nav-menu li {
   margin: 0 15px;
 }
 
 .nav-menu a {
-  color: #e0e1dd;
+  color: #E0E1DD; /* Light text */
   text-decoration: none; 
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -51,7 +52,7 @@ nav {
 }
 
 .nav-menu a:hover {
-  color: #007bff;
+  color: #BB86FC; /* Accent hover color */
 }
 
 .login-icon {
@@ -60,7 +61,7 @@ nav {
   justify-content: flex-end;
 }
 
-.log_in i{
+.log_in i {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -68,10 +69,10 @@ nav {
   align-items: center;
   justify-content: center;
   font-size: x-large;
-  color: white;
+  color: #E0E1DD; /* Light text for icons */
 }
 
-.navbar-nav{
+.navbar-nav {
   width: fit-content;
   line-height: 30px;
   cursor: pointer;
@@ -81,21 +82,20 @@ nav {
   list-style: none;
 }
 
-.nav-item a{
+.nav-item a {
   text-decoration: none;
-  color: #e0e1dd;
+  color: #E0E1DD; /* Light text */
 }
 
-.dropdown-menu{
+.dropdown-menu {
   display: none;
   position: absolute;
 }
 
-.dropdown-menu li{
-  /* background-color: blue; */
+.dropdown-menu li {
   width: 100%;
   height: 30px;
-  box-shadow: 2px 2px 5px hsla(0, 0%,0%, 0.8);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Strong shadow for dropdown */
   list-style: none;
   padding: 1rem 2rem;
   display: flex;
@@ -103,32 +103,30 @@ nav {
   align-items: center;
   border-radius: 8px;
   margin: 4px 0;
-  background-color: whitesmoke;
+  background-color: #1E1E1E; /* Dropdown background */
 }
 
-.dropdown-menu li a{
-  /* background-color: yellow; */
+.dropdown-menu li a {
   text-decoration: none;
-  color: black;
+  color: #E0E1DD; /* Light text for dropdown items */
 }
 
 .navbar-nav:hover .dropdown-menu {
   display: block;
 }
 
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-menu {
       flex-direction: column;
       display: none;
-      background-color: #f8f9fa;
+      background-color: #1E1E1E; /* Dark background for mobile nav */
       width: 100%;
       position: absolute;
       top: 60px;
       left: 0;
       padding: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Strong shadow for mobile nav */
   }
 
   .nav-menu.active {
@@ -143,4 +141,3 @@ nav {
       left: 0;
   }
 }
-

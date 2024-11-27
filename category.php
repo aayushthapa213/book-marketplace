@@ -12,6 +12,7 @@ include('dashbase.php'); // Contains your $conn database connection
   <link rel="stylesheet" href="./css/head.css">
   <link rel="stylesheet" href="./css/category.css">
   <link rel="stylesheet" href="./css/foot.css">
+  <script src="https://kit.fontawesome.com/9c08634970.js" crossorigin="anonymous"></script>
   <title>Categories</title>
 </head>
 

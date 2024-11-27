@@ -7,50 +7,47 @@
 }
 
 body {
-  background: #121212;
-  color: #e0e0e0; 
+  background: #121212; 
+  color: #E0E1DD; 
 }
 
 /* Messages */
 .message {
   display: block;
   width: fit-content;
-  background-color: #1db954; /* Green success message */
+  background-color: #CF6679; /* Error messages in soft red */
   color: white;
   padding: 10px 20px;
   margin: 15px auto;
   border-radius: 5px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /* Subtle shadow */
 }
 
 /* Container */
 .container {
-  /* background-color: gray; */
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 40px 0;
+  /* background: linear-gradient(145deg, #292929, #1E1E1E);  */
 }
 
 /* Products Section */
 .products {
-  /* background-color: red; */
   text-align: center;
 }
 
 .products h1 {
   font-size: 3rem;
   display: flex;
-  text-align: center;
   justify-content: left;
   font-weight: 700;
-  color: #f0f0f0; 
+  color: #E0E1DD; /* Primary accent color for headings */
   margin-bottom: 2.5rem;
 }
 
 .shop_container {
-  /* background-color: yellow; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
@@ -58,22 +55,22 @@ body {
 
 /* Product Cards */
 .box {
-  background: #1e1e1e; /* Dark card background */
+  background: #1E1E1E; /* Dark background for cards */
   height: 550px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Subtle shadow */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  padding:2% 0;
+  padding: 2% 0;
 }
 
 .box:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8); /* Darker shadow on hover */
 }
 
 .box img {
@@ -81,10 +78,9 @@ body {
   margin: auto;
   height: 74%;
   border-radius: 10px;
-  /* aspect-ratio: 9 / 16; */
   object-fit: cover;
   transition: transform 0.3s ease;
-  border-bottom: 2px solid #1db954;
+  border-bottom: 2px solid #BB86FC; /* Accent border for images */
 }
 
 .box:hover img {
@@ -92,42 +88,37 @@ body {
 }
 
 .box h3 {
-  /* background-color: red; */
   height: 8%;
   font-size: 1.4rem;
-  color: #e0e0e0; /* Light text for readability */
+  color: #E0E1DD; /* Main text color */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 20px 15px; */
   font-weight: 600;
   text-transform: capitalize;
 }
 
 .box .price {
   height: 8%;
-  /* background-color: green; */
   font-size: 1.2rem;
-  color: #1ed760; /* Green accent for price */
+  color: #BB86FC; /* Primary color for price */
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 0 15px 20px; */
 }
 
+/* Buttons */
 .btn {
-  /* background-color: #1db954; */
   height: 8%;
   width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 10px 15px; */
   padding: 12px 20px;
-  background: linear-gradient(to right, #1db954, #1ed760);
-  color: #000; /* Dark text for button contrast */
+  background: linear-gradient(to right, #BB86FC, #6200EA); /* Gradient with primary and secondary colors */
+  color: #E0E1DD; /* Light text for button contrast */
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -135,10 +126,11 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  box-shadow: 0 4px 6px rgba(187, 134, 252, 0.6); /* Input focus effect shadow */
 }
 
 .btn:hover {
-  background: linear-gradient(to right, #17a846, #17a846);
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
   transform: scale(1.05);
 }
 
@@ -146,6 +138,17 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+a:hover {
+  color: #BB86FC; /* Accent color for links */
+}
+
+/* Input Focus */
+input:focus, textarea:focus {
+  outline: none;
+  border: 2px solid #BB86FC; /* Primary color on focus */
+  box-shadow: 0 0 5px rgba(187, 134, 252, 0.6); /* Focus effect */
 }
 
 /* Responsive Design */

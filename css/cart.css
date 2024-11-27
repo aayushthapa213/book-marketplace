@@ -8,8 +8,9 @@
 
 body {
   background: #121212;
-  color: #e0e0e0; 
+  color: #E0E1DD; 
 }
+
 /* Container */
 .container {
   width: 90%;
@@ -21,14 +22,14 @@ body {
 /* Shopping Cart Section */
 .shopping_cart {
   padding: 30px;
-  background-color: #1e1e1e; 
+  background-color: #1E1E1E;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
 }
 
 h1 {
   font-size: 2rem;
-  color: #1db954; 
+  color: #BB86FC; /* Primary Accent */
   margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
@@ -40,18 +41,18 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 30px;
-  color: #e0e0e0; 
+  color: #A0A0A0; /* Secondary Text */
 }
 
 thead {
-  background-color: #333; 
-  color: #ffffff;
+  background-color: #292929; /* Secondary Background */
+  color: #E0E1DD; /* Main Text */
 }
 
 th, td {
   padding: 15px 20px;
   text-align: center;
-  border: 1px solid #444; 
+  border: 1px solid #444;
 }
 
 td img {
@@ -68,15 +69,15 @@ input[type="number"] {
   text-align: center;
   border: 1px solid #555; 
   border-radius: 4px;
-  background-color: #2b2b2b;
-  color: #e0e0e0; 
+  background-color: #292929;
+  color: #E0E1DD;
 }
 
 input[type="submit"] {
   padding: 8px 20px;
   border: none;
-  background-color: #1db954; /* Green for update button */
-  color: #121212; /* Dark text for contrast */
+  background-color: #6200EA; /* Secondary Highlight */
+  color: #E0E1DD;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
@@ -84,19 +85,19 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #17a846;
+  background-color: #9A67EA; /* Hover Effect */
   transform: translateY(-2px); /* Lift effect */
 }
 
 /* Delete Link */
 .delete {
-  color: #ff6b6b; /* Soft red */
+  color: #CF6679; /* Error/Alert Color */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .delete:hover {
-  color: #ff4747; /* Brighter red on hover */
+  color: #FF868E; /* Brighter Error Color on hover */
   text-decoration: underline;
 }
 
@@ -104,8 +105,8 @@ input[type="submit"]:hover {
 .option-btn, .delete-btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #1db954;
-  color: #121212;
+  background-color: #6200EA;
+  color: #E0E1DD;
   border-radius: 25px;
   text-decoration: none;
   text-transform: uppercase;
@@ -113,24 +114,24 @@ input[type="submit"]:hover {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.option-btn:hover, .delete-btn:hover {
-  background-color: #17a846;
-  transform: translateY(-2px); /* Lift effect */
+.option-btn:hover {
+  background-color: #9A67EA;
+  transform: translateY(-2px);
 }
 
 .delete-btn {
-  background-color: #ff6b6b;
+  background-color: #CF6679;
 }
 
 .delete-btn:hover {
-  background-color: #ff4747;
+  background-color: #FF868E;
 }
 
 /* Grand Total Row */
 tr.table-bottom {
   font-weight: bold;
-  background-color: #282828; /* Darker row background */
-  color: #e0e0e0;
+  background-color: #292929; /* Darker row background */
+  color: #BB86FC; /* Primary Accent */
 }
 
 tr.table-bottom td {
