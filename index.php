@@ -185,7 +185,7 @@ if (isset($_POST['add_to_cart'])) {
     </a>
     </div>
     <span>
-      <a href="shop.php" class="view-more-btn">View All</a>
+      <a href="category.php" class="view-more-btn">View All</a>
     </span>
   </section>
   <script src="./js/custom.js"></script>

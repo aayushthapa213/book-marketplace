@@ -1,72 +1,104 @@
-// const form = document.getElementById('form');
-// const username = document.getElementById('username');
-// const email = document.getElementById('email');
-// const password = document.getElementById('password');
-// const password2 = document.getElementById('password2');
+const firstNameError = document.getElementById("first_error");
+const lastNameError = document.getElementById("last_error");
+const emailError = document.getElementById("email_error");
+const phoneError = document.getElementById("phone_error");
+const addressError = document.getElementById("address_error");
+const passwordError = document.getElementById("pass_error");
+const confirmPasswordError = document.getElementById("conpass_error");
 
-// form.addEventListener('submit', e => {
-//     e.preventDefault();
+function validFirstName() {
+  const firstName = document.getElementById("first_name").value.trim();
+  if (firstName.length === 0) {
+    firstNameError.innerHTML = "Please enter your first name!";
+    return false;
+  }
+  firstNameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
 
-//     validateInputs();
-// });
+function validLastName() {
+  const lastName = document.getElementById("last_name").value.trim();
+  if (lastName.length === 0) {
+    lastNameError.innerHTML = "Please enter your last name!";
+    return false;
+  }
+  lastNameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
 
-// const setError = (element, message) => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
+function validemail() {
+  const email = document.getElementById("email").value.trim();
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3}$/;
 
-//     errorDisplay.innerText = message;
-//     inputControl.classList.add('error');
-//     inputControl.classList.remove('success')
-// }
+  if (email.length === 0) {
+    emailError.innerHTML = 'Please enter your email address!';
+    return false;
+  } else if (!emailRegex.test(email)) {
+    emailError.innerHTML = 'Please enter a valid email address!';
+    return false;
+  }
 
-// const setSuccess = element => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
+  emailError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
 
-//     errorDisplay.innerText = '';
-//     inputControl.classList.add('success');
-//     inputControl.classList.remove('error');
-// };
+function validPhone() {
+  const phone = document.getElementById("phone").value.trim();
 
-// const isValidEmail = email => {
-//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(String(email).toLowerCase());
-// }
+  if (phone.length === 0) {
+    phoneError.innerHTML = "Please enter your phone number!";
+    return false;
+  } else if (phone.length !== 10) {
+    phoneError.innerHTML = "Phone number should be of 10 digits!";
+    return false;
+  } else if (!phone.match(/^[0-9]{10}$/)) {
+    phoneError.innerHTML = "Phone number should contain only digits!";
+    return false;
+  }
+  phoneError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
 
-// const validateInputs = () => {
-//     const usernameValue = username.value.trim();
-//     const emailValue = email.value.trim();
-//     const passwordValue = password.value.trim();
-//     const password2Value = password2.value.trim();
+function validPassword() {
+  const password = document.getElementById('password').value.trim();
 
-//     if(usernameValue === '') {
-//         setError(username, 'Username is required');
-//     } else {
-//         setSuccess(username);
-//     }
+  if (password.length === 0) {
+    passwordError.innerHTML = 'Please enter a password!';
+    return false;
+  } else if (password.length < 6) {
+    passwordError.innerHTML = 'Password must be at least 6 characters long!';
+    return false;
+  } else if (!/[A-Z]/.test(password)) {
+    passwordError.innerHTML = 'Password must contain at least one uppercase letter!';
+    return false;
+  } else if (!/[0-9]/.test(password)) {
+    passwordError.innerHTML = 'Password must contain at least one number!';
+    return false;
+  }
 
-//     if(emailValue === '') {
-//         setError(email, 'Email is required');
-//     } else if (!isValidEmail(emailValue)) {
-//         setError(email, 'Provide a valid email address');
-//     } else {
-//         setSuccess(email);
-//     }
+  passwordError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
 
-//     if(passwordValue === '') {
-//         setError(password, 'Password is required');
-//     } else if (passwordValue.length < 8 ) {
-//         setError(password, 'Password must be at least 8 character.')
-//     } else {
-//         setSuccess(password);
-//     }
+function validConfirmPassword() {
+  const password = document.getElementById('password').value.trim();
+  const confirmPassword = document.getElementById('confirm_password').value.trim();
 
-//     if(password2Value === '') {
-//         setError(password2, 'Please confirm your password');
-//     } else if (password2Value !== passwordValue) {
-//         setError(password2, "Passwords doesn't match");
-//     } else {
-//         setSuccess(password2);
-//     }
+  if (confirmPassword.length === 0) {
+    confirmPasswordError.innerHTML = 'Please confirm your password!';
+    return false;
+  } else if (confirmPassword !== password) {
+    confirmPasswordError.innerHTML = 'Passwords do not match!';
+    return false;
+  }
 
-// };
+  confirmPasswordError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
+
+function validateForm(){
+  if(!validFirstName() || !validLastName() || !validemail() || !validPhone() || !validPassword() || !validConfirmPassword()){
+    return false;
+  }
+}
+

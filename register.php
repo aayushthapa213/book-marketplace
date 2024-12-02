@@ -13,16 +13,6 @@ $email = "";
 $phone = "";
 $address = "";
 
-$first_name_error = "";
-$last_name_error = "";
-$email_error = "";
-$phone_error = "";
-$address_error = "";
-$password_error = "";
-$confirm_password_error = "";
-
-$error = false;
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -30,84 +20,38 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-
-
-    if (empty($first_name)) {
-        $first_name_error = "First name is required";
-        $error = true;
-    }
-
-    if (empty($last_name)) {
-        $last_name_error = "Last name is required";
-        $error = true;
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $email_error = "Email format is not valid";
-        $error = true;
-    }
 
     include("database.php");
     $dbconnection = getDatabaseConnection();
 
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $created_at = date('Y-m-d H:i:s');
 
-    $statement = $dbconnection->prepare("SELECT id FROM users WHERE email = ?");
-    $statement->bind_param("s", $email);
+    $statement = $dbconnection->prepare(
+        "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+    );
+
+    $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
+
     $statement->execute();
 
-    $statement->store_result();
-    if ($statement->num_rows > 0) {
-        $email_error = "Email already exists";
-        $error = true;
-    }
-
+    $insert_id = $statement->insert_id;
     $statement->close();
 
-    if (!preg_match("/^(\+|00\d{1,3})?[-]?\d{7,10}$/", $phone)) {
-        $phone_error = "Phone number is not valid";
-        $error = true;
-    }
+    $_SESSION["id"] = $insert_id;
+    $_SESSION["first_name"] = $first_name;
+    $_SESSION["last_name"] = $last_name;
+    $_SESSION["email"] = $email;
+    $_SESSION["phone"] = $phone;
+    $_SESSION["address"] = $address;
+    $_SESSION["created_at"] = $created_at;
 
-    if (strlen($password) < 6) {
-        $password_error = "Password must be at least 6 characters long";
-        $error = true;
-    }
-
-    if ($confirm_password != $password) {
-        $confirm_password_error = "Passwords do not match";
-        $error = true;
-    }
-
-    if (!$error) {
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $created_at = date('Y-m-d H:i:s');
-
-        $statement = $dbconnection->prepare(
-            "INSERT INTO users (first_name,last_name,email,phone,address,password,created_at)" . " VALUES (?,?,?,?,?,?,?)"
-        );
-
-        $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
-
-        $statement->execute();
-
-        $insert_id = $statement->insert_id;
-        $statement->close();
-
-        $_SESSION["id"] = $insert_id;
-        $_SESSION["first_name"] = $first_name;
-        $_SESSION["last_name"] = $last_name;
-        $_SESSION["email"] = $email;
-        $_SESSION["phone"] = $phone;
-        $_SESSION["address"] = $address;
-        $_SESSION["created_at"] = $created_at;
-
-        header("location: /booksell/index.php");
-        exit;
-    }
+    header("location: /booksell/index.php");
+    exit;
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,40 +74,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <h1>Sign Up</h1>
             <div class="input-control">
                 <label for="first_name">First Name</label>
-                <input id="first_na me" name="first_name" type="text" value="<?= $first_name ?>">
-                <div class="error"><?= $first_name_error ?></div>
+                <input id="first_name" name="first_name" type="text" value="<?= $first_name ?>" onkeyup="validFirstName()">
+                <div id="first_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="last_name">Last Name</label>
-                <input id="last_name" name="last_name" type="text" value="<?= $last_name ?>">
-                <div class="error"><?= $last_name_error ?></div>
+                <input id="last_name" name="last_name" type="text" value="<?= $last_name ?>" onkeyup="validLastName()">
+                <div id="last_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" value="<?= $email ?>">
-                <div class="error"><?= $email_error ?></div>
+                <input id="email" name="email" type="email" value="<?= $email ?>" onkeyup="validemail()">
+                <div id="email_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" value="<?= $phone ?>">
-                <div class="error"><?= $phone_error ?></div>
+                <input id="phone" name="phone" type="tel" value="<?= $phone ?>" onkeyup="validPhone()">
+                <div id="phone_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="address">Address</label>
                 <input id="address" name="address" value="<?= $address ?>">
-                <div class="error"><?= $address_error ?></div>
+                <div id="address_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password" value="">
-                <div class="error"><?= $password_error ?></div>
+                <input id="password" name="password" type="password" value="" onkeyup="validPassword()">
+                <div id="pass_error" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" type="password" value="">
-                <div class="error"><?= $confirm_password_error ?></div>
+                <input id="confirm_password" name="confirm_password" type="password" value="" onkeyup="validConfirmPassword()">
+                <div id="conpass_error" class="error"></div>
             </div>
-            <button type="submit" name="sign">Sign Up</button>
+            <button type="submit" name="sign" onclick="return validateForm()">Sign Up</button>
             <p class="already-registered">Already registered? <a href="../bookSell/login.php">Log in here</a></p>
         </form>
     </div>
