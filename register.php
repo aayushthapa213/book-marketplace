@@ -13,6 +13,10 @@ $email = "";
 $phone = "";
 $address = "";
 
+$email_error = "";
+
+$error = false;
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -24,30 +28,44 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include("database.php");
     $dbconnection = getDatabaseConnection();
 
-    $password = password_hash($password, PASSWORD_DEFAULT);
-    $created_at = date('Y-m-d H:i:s');
-
-    $statement = $dbconnection->prepare(
-        "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
-    );
-
-    $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
-
+    $statement = $dbconnection->prepare("SELECT id FROM users WHERE email = ?");
+    $statement->bind_param("s", $email);
     $statement->execute();
 
-    $insert_id = $statement->insert_id;
+    $statement->store_result();
+    if ($statement->num_rows > 0) {
+        $email_error = "Email already exists";
+        $error = true;
+    }
+
     $statement->close();
 
-    $_SESSION["id"] = $insert_id;
-    $_SESSION["first_name"] = $first_name;
-    $_SESSION["last_name"] = $last_name;
-    $_SESSION["email"] = $email;
-    $_SESSION["phone"] = $phone;
-    $_SESSION["address"] = $address;
-    $_SESSION["created_at"] = $created_at;
+    if (!$error) {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $created_at = date('Y-m-d H:i:s');
 
-    header("location: /booksell/index.php");
-    exit;
+        $statement = $dbconnection->prepare(
+            "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        );
+
+        $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
+
+        $statement->execute();
+
+        $insert_id = $statement->insert_id;
+        $statement->close();
+
+        $_SESSION["id"] = $insert_id;
+        $_SESSION["first_name"] = $first_name;
+        $_SESSION["last_name"] = $last_name;
+        $_SESSION["email"] = $email;
+        $_SESSION["phone"] = $phone;
+        $_SESSION["address"] = $address;
+        $_SESSION["created_at"] = $created_at;
+
+        header("location: /booksell/index.php");
+        exit;
+    }
 }
 
 ?>
@@ -85,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="input-control">
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" value="<?= $email ?>" onkeyup="validemail()">
-                <div id="email_error" class="error"></div>
+                <div id="email_error" class="error"><?= $email_error ?></div>
             </div>
             <div class="input-control">
                 <label for="phone">Phone</label>
@@ -94,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
             <div class="input-control">
                 <label for="address">Address</label>
-                <input id="address" name="address" value="<?= $address ?>">
+                <input id="address" name="address" value="<?= $address ?>" onkeyup="validAddress()">
                 <div id="address_error" class="error"></div>
             </div>
             <div class="input-control">

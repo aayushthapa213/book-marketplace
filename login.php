@@ -12,38 +12,36 @@ $error = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    if (empty($email) || empty($password)) {
-        $error = "Email and Password are required";
-    } else {
-        include("database.php");
-        $dbconnection = getDatabaseConnection();
 
-        $statement  = $dbconnection->prepare(
-            "SELECT id, first_name, last_name, phone, password,address, created_at FROM users WHERE email = ?"
-        );
+    include("database.php");
+    $dbconnection = getDatabaseConnection();
 
-        $statement->bind_param('s', $email);
-        $statement->execute();
-        $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $address, $created_at);
+    $statement  = $dbconnection->prepare(
+        "SELECT id, first_name, last_name, phone, password,address, created_at FROM users WHERE email = ?"
+    );
 
-        if ($statement->fetch()) {
-            if (password_verify($password, $stored_password)) {
-                $_SESSION["id"] = $id;
-                $_SESSION["first_name"] = $first_name;
-                $_SESSION["last_name"] = $last_name;
-                $_SESSION["email"] = $email;
-                $_SESSION["phone"] = $phone;
-                $_SESSION["address"] = $address;
-                $_SESSION["created_at"] = $created_at;
+    $statement->bind_param('s', $email);
+    $statement->execute();
+    $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $address, $created_at);
 
-                header("location: /booksell/index.php");
-                exit;
-            }
+    if ($statement->fetch()) {
+        if (password_verify($password, $stored_password)) {
+            $_SESSION["id"] = $id;
+            $_SESSION["first_name"] = $first_name;
+            $_SESSION["last_name"] = $last_name;
+            $_SESSION["email"] = $email;
+            $_SESSION["phone"] = $phone;
+            $_SESSION["address"] = $address;
+            $_SESSION["created_at"] = $created_at;
+
+            header("location: /booksell/index.php");
+            exit;
         }
-        $statement->close();
-        $error = "Email or Password Invalid!";
     }
+    $statement->close();
+    $error = "Email or Password Invalid!";
 }
+
 
 ?>
 
@@ -64,44 +62,31 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
+    <?php if (!empty($error)): ?>
+        <div class="error_message">
+            <div class="error"><?= $error ?></div>
+            <i id="cross" class="fa-solid fa-x"></i>
+        </div>
+    <?php endif; ?>
     <div class="container">
-        <?php if (!empty($error)) { ?>
-            <div class="alert" role="alert">
-                <strong><?= $error ?></strong>
-                <button type="button" class="close-alert">×</button>
-            </div>
-        <?php } ?>
-
-        <!-- Form structure remains the same -->
         <form id="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Login</h1>
             <div class="input-control">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" value="<?= $email ?>">
-                <div class="error"></div>
+                <input id="email" name="email" type="email" value="<?= $email ?>" onkeyup="emailValidate()">
+                <div id="emailError" class="error"></div>
             </div>
             <div class="input-control">
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password">
-                <div class="error"></div>
+                <input id="password" name="password" type="password" onkeyup="passValidate()">
+                <div id="passError" class="error"></div>
             </div>
-            <button type="submit">Log In</button>
+            <button onclick="return validateForm()" type="submit">Log In</button>
             <p class="not-registered">Not registered yet? <a href="../bookSell/register.php">Create an account</a></p>
         </form>
     </div>
 
-    <script>
-        // JavaScript to close the alert
-        document.addEventListener("DOMContentLoaded", function() {
-            const closeButton = document.querySelector(".close-alert");
-            if (closeButton) {
-                closeButton.addEventListener("click", function() {
-                    const alertBox = this.parentElement;
-                    alertBox.style.display = "none";
-                });
-            }
-        });
-    </script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>

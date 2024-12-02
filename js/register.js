@@ -59,6 +59,16 @@ function validPhone() {
   return true;
 }
 
+function validAddress() {
+  const address = document.getElementById("address").value.trim();
+  if (address.length === 0) {
+    addressError.innerHTML = "Please enter your address name!";
+    return false;
+  }
+  addressError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+  return true;
+}
+
 function validPassword() {
   const password = document.getElementById('password').value.trim();
 

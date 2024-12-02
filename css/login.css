@@ -18,6 +18,21 @@ body {
   background: linear-gradient(145deg, #1e1e1e, #292929); /* Subtle gradient for modern effect */
 }
 
+
+
+.error_message{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 30%;
+  padding: 2rem;
+  margin: auto;
+}
+
+.hide{
+  display: none;
+}
+
 /* Form title */
 h1 {
   text-align: center;

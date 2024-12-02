@@ -50,7 +50,7 @@ if ($authenticated) {
         </ul>
       <?php } else { ?>
         <div class="log_in">
-          <a href="/bookSell/register.php">
+          <a href="/bookSell/login.php">
             <i class="fa-solid fa-user"></i>
           </a>
         </div>
