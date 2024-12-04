@@ -12,12 +12,10 @@ if ($authenticated) {
 
 <header>
   <nav>
-    <!-- Left: Main Logo -->
     <div class="logo">
       <a href="index.php">BookSell</a>
     </div>
 
-    <!-- Middle: Navigation Menu -->
     <ul class="nav-menu">
       <li><a href="index.php">Home</a></li>
       <li><a href="../booksell/about.php">About</a></li>
@@ -33,7 +31,6 @@ if ($authenticated) {
         </a></li>
     </ul>
 
-    <!-- Right: Login Icon -->
     <div class="login-icon">
       <?php if ($authenticated) { ?>
         <ul class="navbar-nav">

@@ -18,8 +18,8 @@ a{
   width: 100%;
   height: 100vh; 
   position: relative;
-  top: -70px;
-  z-index: -1;
+  top: -74px;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -81,6 +81,23 @@ a{
   transform: scale(1.05);
 }
 
+.hero-section .div_3 button{
+  /* background-color: green; */
+  background: none;
+  height: 45px;
+  width: 45px;
+  border: none;
+  border-radius: 25px;
+
+}
+
+.hero-section .div_3 button i{
+  font-size: x-large;
+  border: none;
+  color: white;
+  /* border-radius: 25px; */
+}
+
 /* Gradient Animation */
 @keyframes gradient-move {
   0% {
@@ -94,243 +111,35 @@ a{
   }
 }
 
-
-
-
-/* Recently Added */
-.best-seller {
-  width: 1180px; 
-  padding: 2rem 0;
-  margin:0 auto;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.best-seller h2 {
-  font-size: 44px;
-  margin-bottom: 53px;
-  color: #E0E1DD; 
-}
-
-/* Card Container */
-.card-container {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: space-around ;
-  height: 408px;
-}
-
-/* Card */
-.card {
-  background: #ffffff;
-  height: 100%;
-  width: 250px;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-  width: 100%;
-  height: 70%;
-  object-fit: cover;
-}
-
-.details{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.card h3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  color: #0d1b2a;
-  margin: 0.5rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.card p {
-  font-size: 1rem;
-  font-weight: bold;
-  color: gray;
-  margin-bottom: 0.5rem;
-}
-
-/* Add to Cart Button */
-.card .btn {
-  background-color: #6200EA;
-  color: #E0E1DD;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.card .btn:hover {
-  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
-  transform: scale(1.05);
-}
-
-/* View More Button */
-.best-seller span{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.view-more-btn {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 2rem;
-  background-color: #6200EA;
-  color: #E0E1DD;
-  text-decoration: none;
-  border-radius: 25px;
-  font-size: 1.2rem;
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-.view-more-btn:hover {
-  background-color: #9A67EA;
-  transform: translateY(-2px);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .card-container {
-    gap: 1rem;
-  }
-
-  .card {
-    width: 90%; /* Full width for smaller screens */
-  }
-
-  .best-seller h2 {
-    font-size: 1.8rem;
-  }
-
-  .view-more-btn {
-    font-size: 1rem;
-  }
-}
-
-
-/* Video Hero Section */
-.video-hero-section {
-  width: 100%;
-  height: 100vh; 
-  margin-top: 74px; 
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay to darken the video */
-  display: flex;
-  align-items: center;
-  padding-left: 130px;
-}
-
-.text-content {
-  max-width: 32%; /* Ensures the text doesn't take up too much space */
-  color: #E0E1DD;
-}
-
-.text-content h2 {
-  font-size: 44px;
-  margin-bottom: 1rem;
-}
-
-.text-content p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.visit-shop-btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: #6200EA;
-  color: #E0E1DD;
-  border: none;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.visit-shop-btn:hover {
-  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
-  transform: scale(1.05);
-}
-
-
 /* Featured Section */
 .featured-section {
-  width: 90%;
-  max-width: 1200px;
-  height: 590px;
-  margin: 74px auto;
-  padding: 2rem 0;
+  /* background-color: green; */
+  width: 80%;
+  height: fit-content;
+  margin: 0 auto;
   border-radius: 12px;
   position: relative;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
 }
 
 .featured-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: #E0E1DD;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Carousel Container */
 .carousel-container {
-  width: 85%;
-  height: 80%;
-  overflow: hidden;
+  /* background-color: red; */
+  width: 80%;
+  height: 80vh;
   margin: 0 auto;
   position: relative;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
-/* Carousel Items */
 .carousel-item {
   height: 100%;
-  width: 60%;
+  width: fit-content;
   margin: auto;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -363,9 +172,9 @@ a{
 /* Overlay Details */
 .carousel-item .details {
   position: absolute;
-  left: 50%; /* Center horizontally */
-  top: 50%; /* Center vertically */
-  transform: translate(-50%, -50%); /* Adjust position to the center */
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
   text-align: center;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
@@ -428,11 +237,11 @@ a{
 }
 
 button.prev {
-  left: 60px;
+  left: 120px;
 }
 
 button.next {
-  right: 60px;
+  right: 120px;
 }
 
 button.prev:hover,
@@ -542,25 +351,163 @@ button.next:hover {
 }
 
 
+/* Recently Added */
+.best-seller {
+  /* background-color: green; */
+  width: 80%; 
+  height: 100vh;
+  margin:74px auto 0;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.best-seller h2 {
+  font-size: 44px;
+  margin-bottom: 30px;
+  color: #E0E1DD; 
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-around ;
+  height: 75%;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  height: 100%;
+  width: 250px;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #0d1b2a;
+  margin: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+/* Add to Cart Button */
+.card .btn {
+  background-color: #6200EA;
+  color: #E0E1DD;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.card .btn:hover {
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
+  transform: scale(1.05);
+}
+
+/* View More Button */
+.best-seller span{
+  /* background-color: purple ; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  height: 60px;
+}
+
+.view-more-btn {
+  background-color: #6200EA;
+  padding: 0.8rem 2rem;
+  color: #E0E1DD;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #9A67EA;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-container {
+    gap: 1rem;
+  }
+
+  .card {
+    width: 90%; /* Full width for smaller screens */
+  }
+
+  .best-seller h2 {
+    font-size: 1.8rem;
+  }
+
+  .view-more-btn {
+    font-size: 1rem;
+  }
+}
+
 /* Category Section */                                                  
 .category-section {
-  width: 1180px; 
-  margin:74px auto 0 auto;
-  padding: 2rem;
+  /* background-color: green; */
+  width: 80%; 
+  height: 100vh;
+  margin:74px auto 0;
   border-radius: 10px;
+  text-align: left;
 }
 
 .category-section h2 {
   font-size: 44px;
-  margin-bottom: 53px;
+  margin-bottom: 30px;
   color: #E0E1DD;
 }
 
 .category-container {
+  /* background-color: red; */
   display: flex;
+  gap: 1.5rem;
   justify-content: space-around;
   align-items: center;
-  height: 408px;
+  height: 75%;
 }
 
 .category {
@@ -568,7 +515,7 @@ button.next:hover {
   width: 250px; 
   text-align: center;
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -592,9 +539,24 @@ button.next:hover {
 }
 
 .category-section span{
+  /* background-color: beige; */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 28px;
+  height: 60px;
+}
+
+.view-more-btn {
+  background-color: #6200EA;
+  padding: 0.8rem 2rem;
+  color: #E0E1DD;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Responsive Styling */
@@ -610,3 +572,75 @@ button.next:hover {
     justify-content: space-evenly;
   }
 }
+
+
+
+/* Video Hero Section */
+.video-hero-section {
+  width: 100%;
+  height: 100vh; 
+  margin-top: 74px; 
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay to darken the video */
+  display: flex;
+  align-items: center;
+  padding-left: 130px;
+}
+
+.text-content {
+  max-width: 32%; /* Ensures the text doesn't take up too much space */
+  color: #E0E1DD;
+}
+
+.text-content h2 {
+  font-size: 44px;
+  margin-bottom: 1rem;
+}
+
+.text-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.visit-shop-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #6200EA;
+  color: #E0E1DD;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.visit-shop-btn:hover {
+  background: linear-gradient(to right, #9A67EA, #9A67EA); /* Hover state with secondary color */
+  transform: scale(1.05);
+}
+
+
+
+
+

@@ -53,62 +53,15 @@ if (isset($_POST['add_to_cart'])) {
         <div class="div_2">
           <p>Connecting readers and sellers in Nepal and beyond.</p>
         </div>
-        <div class="div_3">
-          <input type="input" placeholder="Search for books...">
-        </div>
-      </div>
-    </div>
-  </section>
+        <form action="search.php" method="GET">
+          <div class="div_3">
+            <input type="text" name="search_query" placeholder="Search for books...">
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
 
-  <!-- Recently Added -->
-  <section class="best-seller">
-    <h2>Recently Added</h2>
-    <div class="card-container">
-      <?php
-      $query = "SELECT * FROM books ORDER BY book_id DESC LIMIT 4;";
-      $result = mysqli_query($conn, $query);
-
-      if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-      ?>
-          <form action="" method="post">
-            <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
-              <div class="card">
-                <img src="images/books/<?= $row['image_path']; ?>" alt="Image Not Found">
-                <div class="details">
-                  <h3><?= $row['book_name']; ?></h3>
-                  <p>$<?= $row['price']; ?></p>
-                  <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
-                  <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
-                  <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
-                  <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
-                  <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
-                </div>
-              </div>
-            </a>
-          </form>
-      <?php }
-      } ?>
-    </div>
-    <span>
-      <a href="shop.php" class="view-more-btn">View More</a>
-    </span>
-  </section>
-
-
-  <!-- Video Hero Section -->
-  <section class="video-hero-section">
-    <div class="video-container">
-      <video autoplay muted loop>
-        <source src="images/vid.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-overlay">
-        <div class="text-content">
-          <h2>About Us</h2>
-          <p>We are dedicated to connecting readers and book lovers with quality books, making it easier to buy and sell new and used books. Explore our vast collection and support the local book community.</p>
-          <a href="shop.php" class="visit-shop-btn">Visit Shop</a>
-        </div>
       </div>
     </div>
   </section>
@@ -153,7 +106,40 @@ if (isset($_POST['add_to_cart'])) {
     </span>
   </section>
 
+  <!-- Recently Added -->
+  <section class="best-seller">
+    <h2>Recently Added</h2>
+    <div class="card-container">
+      <?php
+      $query = "SELECT * FROM books ORDER BY book_id DESC LIMIT 4;";
+      $result = mysqli_query($conn, $query);
 
+      if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+          <form action="" method="post">
+            <a href="book_landing.php?book_id=<?= $row['book_id']; ?>">
+              <div class="card">
+                <img src="images/books/<?= $row['image_path']; ?>" alt="Image Not Found">
+                <div class="details">
+                  <h3><?= $row['book_name']; ?></h3>
+                  <p>$<?= $row['price']; ?></p>
+                  <input type="hidden" name="product_id" value="<?= $row['book_id']; ?>">
+                  <input type="hidden" name="product_name" value="<?= $row['book_name']; ?>">
+                  <input type="hidden" name="product_price" value="<?= $row['price']; ?>">
+                  <input type="hidden" name="product_image" value="<?= $row['image_path']; ?>">
+                  <input type="submit" class="btn" value="Add to Cart" name="add_to_cart">
+                </div>
+              </div>
+            </a>
+          </form>
+      <?php }
+      } ?>
+    </div>
+    <span>
+      <a href="shop.php" class="view-more-btn">View More</a>
+    </span>
+  </section>
 
   <!-- Category Section -->
   <section class="category-section">
@@ -188,6 +174,26 @@ if (isset($_POST['add_to_cart'])) {
       <a href="category.php" class="view-more-btn">View All</a>
     </span>
   </section>
+
+
+  <!-- Video Hero Section -->
+  <section class="video-hero-section">
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="images/vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <div class="text-content">
+          <h2>About Us</h2>
+          <p>We are dedicated to connecting readers and book lovers with quality books, making it easier to buy and sell new and used books. Explore our vast collection and support the local book community.</p>
+          <a href="shop.php" class="visit-shop-btn">Visit Shop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <script src="./js/custom.js"></script>
 
 </body>
