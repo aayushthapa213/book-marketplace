@@ -39,8 +39,12 @@ if ($authenticated) {
               Hi! <?= $_SESSION["first_name"] ?>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/booksell/dashboard.php">Dashboard</a></li>
 
+              <?php if ($_SESSION['role'] === 'admin') { ?>
+                <li><a class="dropdown-item" href="/booksell/admin_dashboard.php">Dashboard</a></li>
+              <?php } else { ?>
+                <li><a class="dropdown-item" href="/booksell/dashboard.php">Dashboard</a></li>
+              <?php } ?>
               <li><a class="dropdown-item" href="/booksell/logout.php">Log Out</a></li>
             </ul>
           </li>

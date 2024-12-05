@@ -17,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $dbconnection = getDatabaseConnection();
 
     $statement  = $dbconnection->prepare(
-        "SELECT id, first_name, last_name, phone, password,address, created_at FROM users WHERE email = ?"
+        "SELECT id, first_name, last_name, phone, password,address, created_at, role FROM users WHERE email = ?"
     );
 
     $statement->bind_param('s', $email);
     $statement->execute();
-    $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $address, $created_at);
+    $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $address, $created_at, $role);
 
     if ($statement->fetch()) {
         if (password_verify($password, $stored_password)) {
@@ -33,8 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION["phone"] = $phone;
             $_SESSION["address"] = $address;
             $_SESSION["created_at"] = $created_at;
+            $_SESSION["role"] = $role;
 
-            header("location: /booksell/index.php");
+            if ($role === 'admin') {
+                header("location: /booksell/admin_dashboard.php"); // Redirect admin to admin dashboard
+            } elseif($role === 'user') {
+                header("location: /booksell/index.php"); // Redirect regular users to homepage
+            }else{
+                echo "Access Denied: You are not an admin.";
+            }
             exit;
         }
     }

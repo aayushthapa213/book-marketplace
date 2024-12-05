@@ -11,6 +11,19 @@ a{
   text-decoration: none;
 }
 
+/* Messages */
+.message {
+  display: block;
+  width: fit-content;
+  background-color: #CF6679; /* Error messages in soft red */
+  color: white;
+  padding: 10px 20px;
+  margin: 15px auto;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /* Subtle shadow */
+}
+
 .container{
   width: 80%;
   margin: 0 auto;
