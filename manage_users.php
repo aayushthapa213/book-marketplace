@@ -39,53 +39,28 @@ if (!$authenticated) {
         <li><a href="manage_books.php"><i class="fas fa-book"></i> Manage Books</a></li>
         <li><a href="manage_users.php"><i class="fas fa-users"></i> Users</a></li>
         <li><a href="upload_book.php"><i class="fa fa-plus"></i>Add Book</a></li>
-        <li class="settings-container">
-          <a href="#"><i class="fas fa-cog"></i> Settings</a>
-          <div class="setting-hidden">
-            <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Shop</a></li>
-              <li><a href="">Category</a></li>
-              <li><a href="">Log Out</a></li>
-            </ul>
-          </div>
-        </li>
-
+        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        <div class="setting-hidden">
+          <li><a href="">home</a></li>
+          <li><a href="">about</a></li>
+          <li><a href="">shop</a></li>
+          <li><a href="">category</a></li>
+          <li><a href="">log out</a></li>
+        </div>
       </ul>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-      <header class="header">
-        <h2>Welcome, Admin!</h2>
-        <p>Manage your dashboard efficiently</p>
-      </header>
-
-      <section class="stats">
-        <div class="stat-card">
-          <h3>Books <i class="fas fa-book"></i></h3>
-          <p> 120</p>
-        </div>
-        <div class="stat-card">
-          <h3>Users <i class="fas fa-users"></i></h3>
-          <p> 80</p>
-        </div>
-        <div class="stat-card">
-          <h3>Revenue <i class="fas fa-dollar-sign"></i></h3>
-          <p> $5,000</p>
-        </div>
-      </section>
-
       <section class="table-section">
-        <h2>Recent Orders</h2>
+        <h2>Users</h2>
         <table>
           <thead>
             <tr>
               <th>#</th>
-              <th>Book Name</th>
-              <th>Category</th>
-              <th>Uploaded By</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
               <th>Date</th>
               <th>Action</th>
             </tr>
@@ -93,19 +68,25 @@ if (!$authenticated) {
           <tbody>
             <tr>
               <td>1</td>
-              <td>The Great Gatsby</td>
-              <td>Fiction</td>
               <td>John Doe</td>
+              <td>johndoe@example.com</td>
+              <td>User</td>
               <td>2024-12-01</td>
-              <td><button>Delete</button></td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+              </td>
             </tr>
             <tr>
               <td>2</td>
-              <td>To Kill a Mockingbird</td>
-              <td>Drama</td>
               <td>Jane Smith</td>
+              <td>janesmith@example.com</td>
+              <td>Admin</td>
               <td>2024-12-02</td>
-              <td><button>Delete</button></td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+              </td>
             </tr>
           </tbody>
         </table>

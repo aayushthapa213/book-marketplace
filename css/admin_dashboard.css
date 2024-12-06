@@ -61,6 +61,30 @@ a {
   color: #4FC3F7; /* Bright cyan for hover effect */
 }
 
+.fa-cog{
+  position: relative;
+}
+
+.sidebar ul .setting-hidden ul{
+  background-color: red;
+  position: absolute;
+  height: 200px;
+  width: 120px;
+  z-index: 20;
+  /* display: flex;  */
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  left: 110px;
+  top: 430px;
+  display: none ;
+}
+
+.nav-links li:hover .setting-hidden ul{
+  display: flex;
+}
+
 /* Main Content */
 .main-content {
   background-color: #0F3460; /* Slightly lighter blue for contrast with sidebar */
@@ -188,3 +212,4 @@ button:hover {
   background-color: #1E90FF; /* Darker blue hover effect */
   transform: scale(1.05);
 }
+
