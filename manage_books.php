@@ -10,6 +10,7 @@ if ($authenticated) {
 
 include('dashbase.php');
 
+
 if (!$authenticated) {
   echo "<script>alert('Please log in to access the admin dashboard.'); window.location.href = 'login.php';</script>";
   exit();
@@ -28,6 +29,12 @@ if (!$authenticated) {
 </head>
 
 <body>
+  <?php
+  $query = "SELECT * FROM books";
+  $result = mysqli_query($conn, $query);
+  ?>
+
+
   <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -39,59 +46,60 @@ if (!$authenticated) {
         <li><a href="manage_books.php"><i class="fas fa-book"></i> Manage Books</a></li>
         <li><a href="manage_users.php"><i class="fas fa-users"></i> Users</a></li>
         <li><a href="upload_book.php"><i class="fa fa-plus"></i>Add Book</a></li>
-        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-        <div class="setting-hidden">
-            <li><a href="">home</a></li>
-            <li><a href="">about</a></li>
-            <li><a href="">shop</a></li>
-            <li><a href="">category</a></li>
-            <li><a href="">log out</a></li>
+        <li class="settings-container">
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          <div class="setting-hidden">
+            <ul>
+            <li><a href="index.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+              <li><a href="shop.php">Shop</a></li>
+              <li><a href="category.php">Category</a></li>
+              <li><a href="logout.php">Log Out</a></li>
+            </ul>
           </div>
-  </ul>
-  </aside>
+        </li>
+      </ul>
+    </aside>
 
-  <!-- Main Content -->
-  <main class="main-content">
+    <!-- Main Content -->
+    <main class="main-content">
     <section class="table-section">
-      <h2>Books</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Book Name</th>
-            <th>Category</th>
-            <th>Uploaded By</th>
-            <th>Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>The Great Gatsby</td>
-            <td>Fiction</td>
-            <td>John Doe</td>
-            <td>2024-12-01</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>To Kill a Mockingbird</td>
-            <td>Drama</td>
-            <td>Jane Smith</td>
-            <td>2024-12-02</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+    <h2>Books</h2>
+    <?php if (mysqli_num_rows($result) > 0): ?> 
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Book Name</th>
+                    <th>Category</th>
+                    <th>Uploaded By</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?= $i++ ?></td> 
+                        <td><?= htmlspecialchars($row['book_name']) ?></td> <!-- Use htmlspecialchars for security -->
+                        <td><?= htmlspecialchars($row['category']) ?></td>
+                        <td><?= htmlspecialchars($row['author_name']) ?></td>
+                        <td><?= htmlspecialchars($row['upload_date']) ?></td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No books found.</p>
+    <?php endif; ?>
+</section>
+
+
+    </main>
   </div>
 </body>
 

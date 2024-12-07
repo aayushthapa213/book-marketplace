@@ -92,7 +92,7 @@ $user_id = $_SESSION['id'];
                   <td><?= htmlspecialchars($row['category']) ?></td>
                   <td><?= htmlspecialchars($row['description']) ?></td>
                   <td><?= htmlspecialchars($row['upload_date']) ?></td>
-                  <td>
+                  <td> 
                     <a href="update_book.php?edit=<?= $row['book_id']; ?>" class="btn">
                       <i class="fas fa-edit">edit</i>
                     </a>

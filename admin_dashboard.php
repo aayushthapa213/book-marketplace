@@ -14,6 +14,9 @@ if (!$authenticated) {
   echo "<script>alert('Please log in to access the admin dashboard.'); window.location.href = 'login.php';</script>";
   exit();
 }
+
+$revenue = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +31,10 @@ if (!$authenticated) {
 </head>
 
 <body>
+  <?php
+  $query = "SELECT * FROM cart INNER JOIN users ON cart.user_id = users.id";
+  $result = mysqli_query($conn, $query);
+  ?>
   <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -43,11 +50,11 @@ if (!$authenticated) {
           <a href="#"><i class="fas fa-cog"></i> Settings</a>
           <div class="setting-hidden">
             <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Shop</a></li>
-              <li><a href="">Category</a></li>
-              <li><a href="">Log Out</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+              <li><a href="shop.php">Shop</a></li>
+              <li><a href="category.php">Category</a></li>
+              <li><a href="logout.php">Log Out</a></li>
             </ul>
           </div>
         </li>
@@ -63,52 +70,66 @@ if (!$authenticated) {
       </header>
 
       <section class="stats">
+        <?php
+        $query_book = "SELECT * FROM books";
+        $result_book = mysqli_query($conn, $query_book);
+        $total_books = mysqli_num_rows($result_book);
+        $query_user = "SELECT * FROM users";
+        $result_user = mysqli_query($conn, $query_user);
+        $total_user = mysqli_num_rows($result_user);
+
+        $query_revenue = "SELECT SUM(price * quantity) AS total_revenue FROM cart";
+        $result_revenue = mysqli_query($conn, $query_revenue);
+        $row_revenue = mysqli_fetch_assoc($result_revenue);
+        $revenue = $row_revenue['total_revenue'] ?? 0; // Fallback to 0 if no revenue
+
+        ?>
         <div class="stat-card">
           <h3>Books <i class="fas fa-book"></i></h3>
-          <p> 120</p>
+          <p> <?= $total_books ?></p>
         </div>
         <div class="stat-card">
           <h3>Users <i class="fas fa-users"></i></h3>
-          <p> 80</p>
+          <p> <?= $total_user ?></p>
         </div>
         <div class="stat-card">
           <h3>Revenue <i class="fas fa-dollar-sign"></i></h3>
-          <p> $5,000</p>
+          <p> <?= number_format($revenue,2) ?></p>
         </div>
       </section>
 
       <section class="table-section">
-        <h2>Recent Orders</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Book Name</th>
-              <th>Category</th>
-              <th>Uploaded By</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>The Great Gatsby</td>
-              <td>Fiction</td>
-              <td>John Doe</td>
-              <td>2024-12-01</td>
-              <td><button>Delete</button></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>To Kill a Mockingbird</td>
-              <td>Drama</td>
-              <td>Jane Smith</td>
-              <td>2024-12-02</td>
-              <td><button>Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Total Orders</h2>
+        <?php if (mysqli_num_rows($result) > 0): ?>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Book Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Ordered By</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $i = 1;
+              while ($row = mysqli_fetch_assoc($result)):
+              ?>
+                <tr>
+                  <td><?= $i++ ?></td>
+                  <td><?= $row['name'] ?></td>
+                  <td><?= $row['price'] ?></td>
+                  <td><?= $row['quantity'] ?></td>
+                  <td><?= $row["first_name"] . " " . $row["last_name"] ?></td>
+                  <td><button>Delete</button></td>
+                </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
+        <?php else: ?>
+          <p>No orders found.</p>
+        <?php endif; ?>
       </section>
     </main>
   </div>

@@ -28,6 +28,11 @@ if (!$authenticated) {
 </head>
 
 <body>
+  <?php
+  $query = "SELECT * FROM users";
+  $result = mysqli_query($conn, $query);
+  ?>
+
   <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -39,14 +44,18 @@ if (!$authenticated) {
         <li><a href="manage_books.php"><i class="fas fa-book"></i> Manage Books</a></li>
         <li><a href="manage_users.php"><i class="fas fa-users"></i> Users</a></li>
         <li><a href="upload_book.php"><i class="fa fa-plus"></i>Add Book</a></li>
-        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-        <div class="setting-hidden">
-          <li><a href="">home</a></li>
-          <li><a href="">about</a></li>
-          <li><a href="">shop</a></li>
-          <li><a href="">category</a></li>
-          <li><a href="">log out</a></li>
-        </div>
+        <li class="settings-container">
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          <div class="setting-hidden">
+            <ul>
+            <li><a href="index.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+              <li><a href="shop.php">Shop</a></li>
+              <li><a href="category.php">Category</a></li>
+              <li><a href="logout.php">Log Out</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </aside>
 
@@ -54,42 +63,38 @@ if (!$authenticated) {
     <main class="main-content">
       <section class="table-section">
         <h2>Users</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Doe</td>
-              <td>johndoe@example.com</td>
-              <td>User</td>
-              <td>2024-12-01</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jane Smith</td>
-              <td>janesmith@example.com</td>
-              <td>Admin</td>
-              <td>2024-12-02</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <?php if (mysqli_num_rows($result) > 0): ?>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $i = 1;
+              while ($row = mysqli_fetch_assoc($result)): ?>
+                <tr>
+                  <td><?= $i++ ?></td>
+                  <td><?= $row["first_name"] . " " . $row["last_name"] ?></td>
+                  <td><?= $row['email'] ?></td>
+                  <td><?= $row['role'] ?></td>
+                  <td><?= $row['created_at'] ?></td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
+        <?php else: ?>
+          <p>No users found.</p>
+        <?php endif; ?>
       </section>
     </main>
   </div>
