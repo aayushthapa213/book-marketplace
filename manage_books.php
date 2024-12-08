@@ -32,6 +32,20 @@ if (!$authenticated) {
   <?php
   $query = "SELECT * FROM books";
   $result = mysqli_query($conn, $query);
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $book_id = $_POST['book_id'];
+    $query = "DELETE FROM books WHERE book_id = $book_id";
+    $result1 = mysqli_query($conn, $query);
+
+    if ($result1) {
+      header("Location: manage_books.php?message=Book+Deleted+Successfully");
+      exit();
+    } else {
+      header("Locatoin: manage_books.php?error=Failed+To+Delete+Book");
+      exit();
+    }
+  }
   ?>
 
 
@@ -50,7 +64,7 @@ if (!$authenticated) {
           <a href="#"><i class="fas fa-cog"></i> Settings</a>
           <div class="setting-hidden">
             <ul>
-            <li><a href="index.php">Home</a></li>
+              <li><a href="index.php">Home</a></li>
               <li><a href="about.php">About</a></li>
               <li><a href="shop.php">Shop</a></li>
               <li><a href="category.php">Category</a></li>
@@ -63,40 +77,43 @@ if (!$authenticated) {
 
     <!-- Main Content -->
     <main class="main-content">
-    <section class="table-section">
-    <h2>Books</h2>
-    <?php if (mysqli_num_rows($result) > 0): ?> 
-        <table>
+      <section class="table-section">
+        <h2>Books</h2>
+        <?php if (mysqli_num_rows($result) > 0): ?>
+          <table>
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Book Name</th>
-                    <th>Category</th>
-                    <th>Uploaded By</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
+              <tr>
+                <th>#</th>
+                <th>Book Name</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody>
-                <?php $i = 1; while ($row = mysqli_fetch_assoc($result)): ?>
-                    <tr>
-                        <td><?= $i++ ?></td> 
-                        <td><?= htmlspecialchars($row['book_name']) ?></td> <!-- Use htmlspecialchars for security -->
-                        <td><?= htmlspecialchars($row['category']) ?></td>
-                        <td><?= htmlspecialchars($row['author_name']) ?></td>
-                        <td><?= htmlspecialchars($row['upload_date']) ?></td>
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
+              <?php $i = 1;
+              while ($row = mysqli_fetch_assoc($result)): ?>
+                <tr>
+                  <td><?= $i++ ?></td>
+                  <td><?= htmlspecialchars($row['book_name']) ?></td> <!-- Use htmlspecialchars for security -->
+                  <td><?= htmlspecialchars($row['category']) ?></td>
+                  <td><?= htmlspecialchars($row['author_name']) ?></td>
+                  <td><?= htmlspecialchars($row['upload_date']) ?></td>
+                  <td>
+                    <form action="manage_books.php" method="post">
+                      <input type="hidden" name="book_id" value="<?= $row['book_id'] ?>">
+                      <button type="submit" onclick="return confirm('Do You Want To Delete The Book?')">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <?php endwhile; ?>
             </tbody>
-        </table>
-    <?php else: ?>
-        <p>No books found.</p>
-    <?php endif; ?>
-</section>
+          </table>
+        <?php else: ?>
+          <p>No books found.</p>
+        <?php endif; ?>
+      </section>
 
 
     </main>

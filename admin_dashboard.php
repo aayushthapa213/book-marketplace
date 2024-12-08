@@ -32,9 +32,34 @@ $revenue = 0;
 
 <body>
   <?php
+
   $query = "SELECT * FROM cart INNER JOIN users ON cart.user_id = users.id";
   $result = mysqli_query($conn, $query);
+
+  if ($_SERVER['REQUEST_METHOD'] === 'post') {
+    $cart_id = $_POST['cart_id'];
+    $query = "DELETE FROM cart WHERE cart_id = $cart_id";
+    $result1 = mysqli_query($conn, $query);
+
+    if ($result1) {
+      header("Location: admin_dashboard.php?message=Order+shipped+successfully");
+      exit();
+    } else {
+      header("Location: admin_dashboard.php?error=Failed+to+mark+order+as+shipped");
+      exit();
+    }
+  }
+
+  if (isset($_GET['message'])): ?>
+    <p style="color: green;"><?= htmlspecialchars($_GET['message']) ?></p>
+  <?php endif;
+
+  if (isset($_GET['error'])): ?>
+    <p style="color: red;"><?= htmlspecialchars($_GET['error']) ?></p>
+  <?php endif;
+
   ?>
+
   <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -74,6 +99,7 @@ $revenue = 0;
         $query_book = "SELECT * FROM books";
         $result_book = mysqli_query($conn, $query_book);
         $total_books = mysqli_num_rows($result_book);
+
         $query_user = "SELECT * FROM users";
         $result_user = mysqli_query($conn, $query_user);
         $total_user = mysqli_num_rows($result_user);
@@ -94,7 +120,7 @@ $revenue = 0;
         </div>
         <div class="stat-card">
           <h3>Revenue <i class="fas fa-dollar-sign"></i></h3>
-          <p> <?= number_format($revenue,2) ?></p>
+          <p> <?= number_format($revenue, 2) ?></p>
         </div>
       </section>
 
@@ -122,7 +148,12 @@ $revenue = 0;
                   <td><?= $row['price'] ?></td>
                   <td><?= $row['quantity'] ?></td>
                   <td><?= $row["first_name"] . " " . $row["last_name"] ?></td>
-                  <td><button>Delete</button></td>
+                  <td>
+                    <form action="admin_dashboard.php" method="POST">
+                      <input type="hidden" name="cart_id" value="<?= $row['cart_id'] ?>"> 
+                      <button type="submit" onclick="return confirm('Mark this order as shipped?');">Shipped</button>
+                    </form>
+                  </td>
                 </tr>
               <?php endwhile; ?>
             </tbody>
