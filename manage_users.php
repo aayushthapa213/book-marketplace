@@ -31,6 +31,53 @@ if (!$authenticated) {
   <?php
   $query = "SELECT * FROM users";
   $result = mysqli_query($conn, $query);
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_POST['action'] === 'delete') {
+      // Handle delete logic
+      $user_id = $_POST['user_id'];
+
+      // Delete associated cart items, books, and user
+      $query_cart_books = "DELETE FROM cart WHERE book_id IN (SELECT book_id FROM books WHERE user_id = $user_id)";
+      mysqli_query($conn, $query_cart_books);
+
+      $query_cart_user = "DELETE FROM cart WHERE user_id = $user_id";
+      mysqli_query($conn, $query_cart_user);
+
+      $query_books = "DELETE FROM books WHERE user_id = $user_id";
+      mysqli_query($conn, $query_books);
+
+      $query_user = "DELETE FROM users WHERE id = $user_id";
+      $result_user = mysqli_query($conn, $query_user);
+
+      if ($result_user) {
+        header("Location: manage_users.php?message=User+and+their+books+deleted+successfully!");
+        exit();
+      } else {
+        die("Error deleting user: " . mysqli_error($conn));
+      }
+    }
+
+    if ($_POST['action'] === 'edit') {
+      // Handle edit logic (update user role)
+      $user_id = $_POST['user_id'];
+      $current_role = $_POST['current_role'];
+
+      // Toggle role between 'user' and 'admin'
+      $new_role = ($current_role === 'admin') ? 'user' : 'admin';
+
+      $query_update_role = "UPDATE users SET role = '$new_role' WHERE id = $user_id";
+      $result_role = mysqli_query($conn, $query_update_role);
+
+      if ($result_role) {
+        header("Location: manage_users.php?message=User+role+updated+successfully!");
+        exit();
+      } else {
+        die("Error updating role: " . mysqli_error($conn));
+      }
+    }
+  }
+
   ?>
 
   <div class="dashboard-container">
@@ -48,7 +95,7 @@ if (!$authenticated) {
           <a href="#"><i class="fas fa-cog"></i> Settings</a>
           <div class="setting-hidden">
             <ul>
-            <li><a href="index.php">Home</a></li>
+              <li><a href="index.php">Home</a></li>
               <li><a href="about.php">About</a></li>
               <li><a href="shop.php">Shop</a></li>
               <li><a href="category.php">Category</a></li>
@@ -85,8 +132,20 @@ if (!$authenticated) {
                   <td><?= $row['role'] ?></td>
                   <td><?= $row['created_at'] ?></td>
                   <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <!-- Edit Form -->
+                    <form action="manage_users.php" method="post" style="display:inline;">
+                      <input type="hidden" name="action" value="edit">
+                      <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                      <input type="hidden" name="current_role" value="<?= $row['role'] ?>">
+                      <button type="submit">Change Role</button>
+                    </form>
+
+                    <!-- Delete Form -->
+                    <form action="manage_users.php" method="post" style="display:inline;">
+                      <input type="hidden" name="action" value="delete">
+                      <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                      <button type="submit" onclick="return confirm('Do you want to delete the user and all the data related to the user?');">Delete</button>
+                    </form>
                   </td>
                 </tr>
               <?php endwhile; ?>

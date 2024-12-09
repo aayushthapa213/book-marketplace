@@ -35,6 +35,10 @@ if (!$authenticated) {
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $book_id = $_POST['book_id'];
+
+    $query_cart_book = "DELETE FROM cart WHERE book_id = $book_id";
+    mysqli_query($conn, $query_cart_book);
+
     $query = "DELETE FROM books WHERE book_id = $book_id";
     $result1 = mysqli_query($conn, $query);
 

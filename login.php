@@ -36,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION["role"] = $role;
 
             if ($role === 'admin') {
-                header("location: /booksell/admin_dashboard.php"); // Redirect admin to admin dashboard
+                header("location: /booksell/admin_dashboard.php"); 
             } elseif($role === 'user') {
-                header("location: /booksell/index.php"); // Redirect regular users to homepage
+                header("location: /booksell/index.php"); 
             }else{
                 echo "Access Denied: You are not an admin.";
             }

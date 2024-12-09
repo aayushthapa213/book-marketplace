@@ -40,7 +40,7 @@ if ($authenticated) {
             </a>
             <ul class="dropdown-menu">
 
-              <?php if ($_SESSION['role'] === 'admin') { ?>
+              <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
                 <li><a class="dropdown-item" href="/booksell/admin_dashboard.php">Dashboard</a></li>
               <?php } else { ?>
                 <li><a class="dropdown-item" href="/booksell/dashboard.php">Dashboard</a></li>

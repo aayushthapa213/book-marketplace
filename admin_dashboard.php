@@ -36,7 +36,7 @@ $revenue = 0;
   $query = "SELECT * FROM cart INNER JOIN users ON cart.user_id = users.id";
   $result = mysqli_query($conn, $query);
 
-  if ($_SERVER['REQUEST_METHOD'] === 'post') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cart_id = $_POST['cart_id'];
     $query = "DELETE FROM cart WHERE cart_id = $cart_id";
     $result1 = mysqli_query($conn, $query);

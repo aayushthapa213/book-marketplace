@@ -12,7 +12,7 @@ $last_name = "";
 $email = "";
 $phone = "";
 $address = "";
-
+$role = "";
 $email_error = "";
 
 $error = false;
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $password = $_POST['password'];
+    $role = "user";
 
     include("database.php");
     $dbconnection = getDatabaseConnection();
@@ -45,10 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $created_at = date('Y-m-d H:i:s');
 
         $statement = $dbconnection->prepare(
-            "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at, role) VALUES (?, ?, ?, ?, ?, ?, ?,?)"
         );
 
-        $statement->bind_param('sssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at);
+        $statement->bind_param('ssssssss', $first_name, $last_name, $email, $phone, $address, $password, $created_at, $role);
 
         $statement->execute();
 
@@ -62,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION["phone"] = $phone;
         $_SESSION["address"] = $address;
         $_SESSION["created_at"] = $created_at;
+        $_SESSION["role"] = $role;
 
         header("location: /booksell/index.php");
         exit;
